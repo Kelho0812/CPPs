@@ -13,13 +13,15 @@ CC = c++
 CFLAGS = -Werror -Wall -Wextra -g -std=c++98
 
 # File-related variables
-NAME = megaphone
+NAME = phonebook
 RM = rm -rf
 SDIR := src
 ODIR := obj
 
 # Source files
-SOURCES := megaphone.cpp \
+SOURCES := main.cpp \
+			Contact.cpp \
+			PhoneBook.cpp \
 
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))

@@ -1,6 +1,8 @@
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-# include <string>
+#include <cstdio>
+#include <iostream>
+#include <limits>
 
 class Contact
 {

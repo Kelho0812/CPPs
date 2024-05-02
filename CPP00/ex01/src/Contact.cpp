@@ -1,8 +1,5 @@
 #include "../include/Contact.hpp"
-#include <cstdio>
-#include <iostream>
-#include <limits>
-#include <ostream>
+
 
 Contact::Contact()
 {

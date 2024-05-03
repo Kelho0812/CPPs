@@ -1,25 +1,29 @@
 #include "../include/PhoneBook.hpp"
+#include <cstdlib>
+#include <iostream>
 
-
-int	main(void)
+int main(void)
 {
-
 	PhoneBook *phonebook = new PhoneBook;
 	std::string command;
+	phonebook->print_menu();
 	while (std::cin >> command)
 	{
 		if (command == "EXIT")
 		{
-			std::cout << "EXITING BITCH" << std::endl;
-			break ;
+			std::cout << "Goodbye" << std::endl;
+			break;
 		}
-		if (command == "ADD")
+		else if (command == "ADD")
 		{
 			phonebook->add_contact_to_phonebook();
 		}
-		if (command == "SEARCH")
+		else if (command == "SEARCH")
 		{
-			std::cout << "SEARCH NOT YET DONE" << std::endl;
+		}
+		else
+		{
+			phonebook->print_menu();
 		}
 	}
 	delete phonebook;

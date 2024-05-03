@@ -1,15 +1,22 @@
 #include "../include/Contact.hpp"
-
+#include <iostream>
+#include <limits>
+#include <cstdlib>
 
 Contact::Contact()
 {
 	std::cout << "Input First Name: " << std::endl;
+	std::cout << ">: ";
 	std::cin >> this->first_name;
 	std::cout << "Input Last Name: " << std::endl;
+	std::cout << ">: ";
 	std::cin >> this->last_name;
 	std::cout << "Input Nickname: " << std::endl;
+	std::cout << ">: ";
 	std::cin >> this->nickname;
 	std::cout << "Input Phone Number: " << std::endl;
+	std::cout << ">: ";
+
 	do
 	{
 		std::cin >> phone_number;
@@ -17,11 +24,12 @@ Contact::Contact()
 		{
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input, please enter a number: ";
+			std::cout << "Invalid input, please enter a number:" << std::endl;
+			std::cout << ">: ";
 		}
 		else
 		{
-			break ; 
+			break;
 		}
 	} while (true);
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -29,8 +37,16 @@ Contact::Contact()
 	getline(std::cin, this->darkest_secret);
 }
 
-
 void Contact::print_contact(void)
+{
+	std::cout << "First Name: " << this->first_name << std::endl;
+	std::cout << "Last Name: " << this->last_name << std::endl;
+	std::cout << "Nickname: " << this->nickname << std::endl;
+	std::cout << "Phone Number: " << this->phone_number << std::endl;
+	std::cout << "Darkest Secret: " << this->darkest_secret << std::endl;
+}
+
+void Contact::print_all_contacts(void)
 {
 	std::cout << "First Name: " << this->first_name << std::endl;
 	std::cout << "Last Name: " << this->last_name << std::endl;

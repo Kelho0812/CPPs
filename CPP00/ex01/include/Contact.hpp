@@ -1,8 +1,8 @@
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 #include <cstdio>
-#include <iostream>
-#include <limits>
+#include <string>
+
 
 class Contact
 {
@@ -10,6 +10,8 @@ class Contact
 	Contact();
 	~Contact();
 	void print_contact(void);
+	void print_all_contacts(void);
+
   private:
 	std::string first_name;
 	std::string last_name;

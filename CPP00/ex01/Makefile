@@ -11,6 +11,7 @@ RES = \033[0m
 # Compiler-related variables
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -g -std=c++98
+VG = valgrind --leak-check=full --show-leak-kinds=all --suppressions=sup --track-origins=yes --log-file=leaks.log
 
 # File-related variables
 NAME = phonebook
@@ -60,4 +61,38 @@ re : fclean all
 gdb: re
 	gdb --tui $(NAME)
 
-.PHONY: all  clean fclean re gdb 
+debug: all sup_file
+	@echo "$(GREEN)$(NAME) compiled in debug mode!$(DEF_COLOR)"
+
+leaks: ./$(NAME)
+	@if [ -f leaks.log ]; then mv leaks.log leaks-old.log; fi
+	$(VG) ./$(NAME)
+
+.PHONY: all clean fclean re gdb leaks sup_file debug
+
+define SUP_BODY
+{
+   name
+   Memcheck:Leak
+   fun:*alloc
+   ...
+   obj:*/libreadline.so.*
+   ...
+}
+{
+	leak readline
+	Memcheck:Leak
+	...
+	fun:readline
+}
+{
+	leak add_history
+	Memcheck:Leak
+	...
+	fun:add_history
+}
+endef
+
+sup_file:
+	$(file > sup,$(SUP_BODY))
+	@echo "$(MAG)Created suppression file to use with valgrind --suppressions=sup$(RES)"

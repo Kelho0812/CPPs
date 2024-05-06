@@ -4,8 +4,8 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
-#include <string>
 #include <sstream>
+#include <string>
 #include <unistd.h>
 
 std::string formatString(const std::string &str);
@@ -92,8 +92,17 @@ void PhoneBook::display_phonebook(void)
 	std::cout << "\nType the Index of the contact you wish to see" << std::endl;
 	std::cout << ">: ";
 	std::cin >> index;
+	while (index < 0 || index >= contacts_nr || std::cin.fail())
+	{
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Invalid index. Please enter a number between 0 and " << new_contact_index - 1 << ".\n";
+		std::cout << ">: ";
+		std::cin >> index;
+	}
 	if (index >= 0 && index < contacts_nr)
 	{
+
 		print_contact(index);
 	}
 	print_menu(2, false);

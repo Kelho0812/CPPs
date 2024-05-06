@@ -73,7 +73,7 @@ void PhoneBook::display_phonebook(void)
 		print_table_row("0", first_name_formatted, last_name_formatted, nickname_formatted);
 		i++;
 	}
-	std::cout << "Write the Index of the contact you wish to see";
+	std::cout << "Type the Index of the contact you wish to see";
 	int index;
 	std::cin >> index;
 }
@@ -85,9 +85,9 @@ void PhoneBook::print_menu(bool first_time)
 		std::cout << "Welcome to Vault 88 PhoneBook!" << std::endl;
 	}
 	std::cout << "You are in: Main Menu" << std::endl;
-	std::cout << "- Write 'ADD' to add a new contact to the PhoneBook" << std::endl;
-	std::cout << "- Write 'SEARCH' to add a new contact to the PhoneBook" << std::endl;
-	std::cout << "- Write 'EXIT' to exit the PhoneBook\n" << std::endl;
+	std::cout << "- Type 'ADD' to add a new contact to the PhoneBook" << std::endl;
+	std::cout << "- Type 'SEARCH' to add a new contact to the PhoneBook" << std::endl;
+	std::cout << "- Type 'EXIT' to exit the PhoneBook\n" << std::endl;
 	std::cout << ">: ";
 }
 

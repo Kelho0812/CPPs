@@ -5,6 +5,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <sstream>
 #include <unistd.h>
 
 std::string formatString(const std::string &str);
@@ -82,7 +83,10 @@ void PhoneBook::display_phonebook(void)
 		std::string last_name_formatted = formatString(contacts[i]->getLastName());
 		std::string nickname_formatted = formatString(contacts[i]->getNickname());
 		std::string darkest_secret_formatted = formatString(contacts[i]->getDarkestSecret());
-		print_table_row("0", first_name_formatted, last_name_formatted, nickname_formatted);
+		std::stringstream ss;
+		ss << i;
+		std::string index = ss.str();
+		print_table_row(index, first_name_formatted, last_name_formatted, nickname_formatted);
 		i++;
 	}
 	std::cout << "\nType the Index of the contact you wish to see" << std::endl;
@@ -92,8 +96,9 @@ void PhoneBook::display_phonebook(void)
 	{
 		print_contact(index);
 	}
-
 	print_menu(2, false);
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::getline(std::cin, command);
 	if (command == "SEARCH" || command == "search")
 	{

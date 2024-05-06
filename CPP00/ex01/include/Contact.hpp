@@ -10,7 +10,11 @@ class Contact
 	Contact();
 	~Contact();
 	void print_contact(void);
-	void print_all_contacts(void);
+    std::string getFirstName() const { return first_name; }
+    std::string getLastName() const { return last_name; }
+    std::string getNickname() const { return nickname; }
+    std::string getDarkestSecret() const { return darkest_secret; }
+    int getPhoneNumber() const { return phone_number; }
 
   private:
 	std::string first_name;

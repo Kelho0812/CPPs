@@ -24,7 +24,7 @@ int main(void)
 		{
 			phonebook->display_phonebook();
 		}
-		phonebook->print_menu(false);
+		phonebook->print_menu(0);
 	}
 	delete phonebook;
 	return (0);

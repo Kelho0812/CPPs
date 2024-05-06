@@ -1,6 +1,5 @@
 #include "../include/PhoneBook.hpp"
 #include <cstdlib>
-#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -9,8 +8,8 @@ int main(void)
 	PhoneBook *phonebook = new PhoneBook;
 	std::string command;
 	system("clear");
-	phonebook->print_menu(true);
-	while (std::cin >> command)
+	phonebook->print_menu(0, true);
+	while (std::getline(std::cin, command))
 	{
 		if (command == "EXIT" ||  command == "exit")
 		{
@@ -25,7 +24,7 @@ int main(void)
 		{
 			phonebook->display_phonebook();
 		}
-		phonebook->print_menu();
+		phonebook->print_menu(false);
 	}
 	delete phonebook;
 	return (0);

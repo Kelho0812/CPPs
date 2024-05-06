@@ -1,7 +1,9 @@
 #include "../include/PhoneBook.hpp"
+#include <cstdlib>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
+#include <limits>
 #include <string>
 #include <unistd.h>
 
@@ -28,6 +30,8 @@ int PhoneBook::new_contact_index = 0;
 
 void PhoneBook::add_contact_to_phonebook(void)
 {
+	std::string command;
+	print_menu(1, true);
 	if (contacts_nr < 8)
 	{
 		contacts_nr++;
@@ -38,29 +42,37 @@ void PhoneBook::add_contact_to_phonebook(void)
 	}
 	contacts[new_contact_index] = new Contact;
 	new_contact_index++;
-	std::cout << "Contact Added\n" << std::endl;
-	sleep(1);
+	std::cout << "\n\033[33mContact Added\033[0m\n" << std::endl;
+	print_menu(1, false);
+	std::getline(std::cin, command);
+	if (command == "ADD" || command == "add")
+	{
+		add_contact_to_phonebook();
+	}
 }
 
-void PhoneBook::print_contact(void)
+void PhoneBook::print_contact(int index)
 {
-	int i;
 
-	i = 0;
-	while (i < contacts_nr)
-	{
-		this->contacts[i]->print_contact();
-		i++;
-	}
+	this->contacts[index]->print_contact();
 }
 
 void PhoneBook::display_phonebook(void)
 {
 	int i;
+	int index;
+	std::string command;
+	print_menu(2, true);
 	print_table_row("index", "first_name", "last_name", "nickname");
 	if (contacts_nr == 0)
 	{
-		std::cout << "            PHONEBOOK IS EMPTY\n\n\n" << std::endl;;
+		std::cout << "            PHONEBOOK IS EMPTY\n\n\n" << std::endl;
+		std::cout << "Press \"ENTER\" to return to the \033[32mMain Menu\033[0m";
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::string input;
+		std::getline(std::cin, input);
+		system("clear");
 		return;
 	}
 	i = 0;
@@ -73,22 +85,68 @@ void PhoneBook::display_phonebook(void)
 		print_table_row("0", first_name_formatted, last_name_formatted, nickname_formatted);
 		i++;
 	}
-	std::cout << "Type the Index of the contact you wish to see";
-	int index;
+	std::cout << "\nType the Index of the contact you wish to see" << std::endl;
+	std::cout << ">: ";
 	std::cin >> index;
+	if (index >= 0 && index < contacts_nr)
+	{
+		print_contact(index);
+	}
+
+	print_menu(2, false);
+	std::getline(std::cin, command);
+	if (command == "SEARCH" || command == "search")
+	{
+		display_phonebook();
+	}
 }
 
-void PhoneBook::print_menu(bool first_time)
+void PhoneBook::print_menu(int menu, bool first_time)
 {
-	if (first_time == true)
+	if (menu == 0)
 	{
+		system("clear");
 		std::cout << "Welcome to Vault 88 PhoneBook!" << std::endl;
+		std::cout << "You are in: \033[32mMain Menu\033[0m" << std::endl;
+		std::cout << "- Type 'ADD' to add a new contact to the PhoneBook" << std::endl;
+		std::cout << "- Type 'SEARCH' to add a new contact to the PhoneBook" << std::endl;
+		std::cout << "- Type 'EXIT' to exit the PhoneBook\n" << std::endl;
+		std::cout << ">: ";
 	}
-	std::cout << "You are in: Main Menu" << std::endl;
-	std::cout << "- Type 'ADD' to add a new contact to the PhoneBook" << std::endl;
-	std::cout << "- Type 'SEARCH' to add a new contact to the PhoneBook" << std::endl;
-	std::cout << "- Type 'EXIT' to exit the PhoneBook\n" << std::endl;
-	std::cout << ">: ";
+	if (menu == 1)
+	{
+		if (first_time == true)
+		{
+			system("clear");
+		}
+		std::cout << "You are in: \033[32mAdd Menu\033[0m" << std::endl;
+		if (first_time == true)
+		{
+			std::cout << "- Type the contact information one at a time." << std::endl;
+			std::cout << "- The Phone Number should be a valid INT.\n" << std::endl;
+		}
+		if (first_time == false)
+		{
+			std::cout << "- Type \"ADD\" again to add another contact." << std::endl;
+			std::cout << "- Press *ENTER* to exit to Main Menu.\n" << std::endl;
+		}
+		std::cout << ">: ";
+	}
+	if (menu == 2)
+	{
+		if (first_time == true)
+		{
+			system("clear");
+			std::cout << "You are in: \033[32mSearch Menu\033[0m" << std::endl;
+		}
+		if (first_time == false)
+		{
+			std::cout << "\nYou are in: \033[32mSearch Menu\033[0m" << std::endl;
+			std::cout << "- Type \"SEARCH\" again to redisplay all contacts." << std::endl;
+			std::cout << "- Press *ENTER* to exit to Main Menu." << std::endl;
+			std::cout << ">: ";
+		}
+	}
 }
 
 void PhoneBook::print_table_row(std::string word1, std::string word2, std::string word3, std::string word4,

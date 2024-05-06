@@ -17,10 +17,11 @@ class PhoneBook
   public:
 	PhoneBook();
 	~PhoneBook();
+	static int getContactsNumber()  { return contacts_nr; }
 	void add_contact_to_phonebook(void);
-	void print_contact(void);
+	void print_contact(int index);
 	void display_phonebook(void);
-	void print_menu(bool first_time = false);
+	void print_menu(int menu = 0, bool first_time = false);
 };
 
 #endif

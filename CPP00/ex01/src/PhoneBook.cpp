@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
+#include <ostream>
 #include <sstream>
 #include <string>
 #include <unistd.h>
@@ -66,7 +67,6 @@ void PhoneBook::add_contact_to_phonebook(void)
 
 void PhoneBook::print_contact(int index)
 {
-
 	this->contacts[index]->print_contact();
 }
 
@@ -79,51 +79,53 @@ void PhoneBook::display_phonebook(void)
 	print_table_row("index", "first_name", "last_name", "nickname");
 	if (contacts_nr == 0)
 	{
-		std::cout << "            PHONEBOOK IS EMPTY\n\n\n" << std::endl;
-		std::cout << "Press \"ENTER\" to return to the \033[32mMain Menu\033[0m";
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "\n\n           |******************|" << std::endl;
+		std::cout << "            PHONEBOOK IS EMPTY" << std::endl;
+		std::cout << "           |******************|\n\n\n" << std::endl;
+		std::cout << "Press \"ENTER\" to return to the \033[32mMain Menu\033[0m" << std::endl;
+		std::cout << ">: ";
 		std::string input;
 		std::getline(std::cin, input);
-		system("clear");
-		return;
 	}
-	i = 0;
-	while (i < contacts_nr)
+	else
 	{
-		std::string first_name_formatted = formatString(contacts[i]->getFirstName());
-		std::string last_name_formatted = formatString(contacts[i]->getLastName());
-		std::string nickname_formatted = formatString(contacts[i]->getNickname());
-		std::string darkest_secret_formatted = formatString(contacts[i]->getDarkestSecret());
-		std::stringstream ss;
-		ss << i;
-		std::string index = ss.str();
-		print_table_row(index, first_name_formatted, last_name_formatted, nickname_formatted);
-		i++;
-	}
-	std::cout << "\nType the Index of the contact you wish to see" << std::endl;
-	std::cout << ">: ";
-	std::cin >> index;
-	while (index < 0 || index >= contacts_nr || std::cin.fail())
-	{
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "Invalid index. Please enter a number between 0 and " << new_contact_index - 1 << ".\n";
+		i = 0;
+		while (i < contacts_nr)
+		{
+			std::string first_name_formatted = formatString(contacts[i]->getFirstName());
+			std::string last_name_formatted = formatString(contacts[i]->getLastName());
+			std::string nickname_formatted = formatString(contacts[i]->getNickname());
+			std::string darkest_secret_formatted = formatString(contacts[i]->getDarkestSecret());
+			std::stringstream ss;
+			ss << i;
+			std::string index = ss.str();
+			print_table_row(index, first_name_formatted, last_name_formatted, nickname_formatted);
+			i++;
+		}
+		std::cout << "\nType the Index of the contact you wish to see" << std::endl;
 		std::cout << ">: ";
 		std::cin >> index;
-	}
-	if (index >= 0 && index < contacts_nr)
-	{
+		while (index < 0 || index >= contacts_nr || std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Invalid index. Please enter a number between 0 and " << new_contact_index - 1 << ".\n";
+			std::cout << ">: ";
+			std::cin >> index;
+		}
+		if (index >= 0 && index < contacts_nr)
+		{
 
-		print_contact(index);
-	}
-	print_menu(2, false);
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, command);
-	if (command == "SEARCH" || command == "search")
-	{
-		display_phonebook();
+			print_contact(index);
+		}
+		print_menu(2, false);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::getline(std::cin, command);
+		if (command == "SEARCH" || command == "search")
+		{
+			display_phonebook();
+		}
 	}
 }
 

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe  <jorteixe@student.42porto.>      +#+  +:+       +#+        */
+/*   By: jorteixe <jorteixe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:30:59 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/05/06 09:45:03 by jorteixe         ###   ########.fr       */
+/*   Updated: 2024/05/07 11:04:22 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Contact.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <limits>
-#include <cstdlib>
 
 Contact::Contact()
 {
@@ -28,10 +28,13 @@ Contact::Contact()
 	std::cin >> this->nickname;
 	std::cout << "Input Phone Number: " << std::endl;
 	std::cout << ">: ";
-
 	do
 	{
 		std::cin >> phone_number;
+		if (std::cin.eof() == 1)
+		{
+			break ;
+		}
 		if (std::cin.fail())
 		{
 			std::cin.clear();
@@ -41,7 +44,7 @@ Contact::Contact()
 		}
 		else
 		{
-			break;
+			break ;
 		}
 	} while (true);
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

@@ -30,12 +30,14 @@
 *.exe
 *.out
 *.app
-CPP00/ex00/megaphone
+brainz
+leaks.log
 .vscode
+sup
+CPP00/ex00/megaphone
 CPP00/ex01/phonebook
 CPP00/ex01/leaks-old.log
 CPP00/ex01/leaks.log
 CPP00/ex01/sup
 CPP00/ex02/account
 CPP00/ex02/mine.log
-cpp01/ex00/brainz

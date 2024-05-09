@@ -14,7 +14,7 @@ CFLAGS = -Werror -Wall -Wextra -g -std=c++98
 VG = valgrind --leak-check=full --show-leak-kinds=all --suppressions=sup --track-origins=yes --log-file=leaks.log
 
 # File-related variables
-NAME = unnecessary_violence
+NAME = sed_is_for_losers
 RM = rm -rf
 SDIR := src
 ODIR := obj

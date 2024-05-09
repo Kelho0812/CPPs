@@ -14,17 +14,17 @@ CFLAGS = -Werror -Wall -Wextra -g -std=c++98
 VG = valgrind --leak-check=full --show-leak-kinds=all --suppressions=sup --track-origins=yes --log-file=leaks.log
 
 # File-related variables
-NAME = brainz
+NAME = unnecessary_violence
 RM = rm -rf
 SDIR := src
 ODIR := obj
 
 # Source files
 SOURCES := main.cpp \
-			Zombie.cpp\
-			newZombie.cpp\
-			randomChump.cpp\
-			zombieHorde.cpp\
+			HumanA.cpp\
+			HumanB.cpp\
+			Weapon.cpp\
+
 
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))

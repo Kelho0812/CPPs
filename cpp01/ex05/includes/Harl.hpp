@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #pragma once
+#include <string>
+using std::string;
 
 enum level_enum
 {
@@ -20,11 +22,10 @@ enum level_enum
 	ERROR
 };
 
-#include <string>
 class Harl
 {
   public:
-	void complain(std::string level);
+	void complain(string level);
 
   private:
 	void debug(void);

@@ -86,7 +86,7 @@ void Harl::complain(string level)
 		}
 		i++;
 	}
-	cout << "*Angry Harl noises*";
+	cout << "*Angry Harl noises*" << endl;
 }
 
 void Harl::debug(void)

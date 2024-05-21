@@ -1,3 +1,11 @@
+#pragma once
+#ifndef __FIXED_HPP__
+#define __FIXED_HPP__
+
+#include <iostream>
+
+#define Log(x) std::cout << x << std::endl
+
 class Fixed
 {
 public:
@@ -13,3 +21,5 @@ private:
 	int integer;
 	static const int f_bits;
 };
+
+#endif // __FIXED_HPP__

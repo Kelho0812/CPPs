@@ -1,7 +1,7 @@
 #include "../includes/Fixed.hpp"
 #include <iostream>
 
-int main(int argc, char const *argv[])
+int main(int argc, char const* argv[])
 {
 	(void)argc;
 	(void)argv;
@@ -10,9 +10,10 @@ int main(int argc, char const *argv[])
 	Fixed b(a);
 	Fixed c;
 	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
+	Log(a.getRawBits());
+	Log(b.getRawBits());
+	Log(c.getRawBits());
 	return 0;
 }
+
+

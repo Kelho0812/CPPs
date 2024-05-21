@@ -7,12 +7,22 @@ Fixed::Fixed()
 Fixed::~Fixed()
 {
 }
-Fixed::Fixed(const Fixed &fixed)
-{
-}
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
-	// Your code here
-
+	this->integer = fixed.integer;
 	return *this;
+}
+
+Fixed::Fixed(const Fixed &fixed)
+{
+	*this = fixed;
+}
+void Fixed::setRawBits(int const raw)
+{
+	this->integer = raw;
+}
+
+int Fixed::getRawBits(void)
+{
+	return this->integer;
 }

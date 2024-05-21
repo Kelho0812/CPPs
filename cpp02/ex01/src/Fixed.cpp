@@ -5,10 +5,23 @@ Fixed::Fixed()
 	integer = 0;
 	Log("Constructor was called");
 }
+
+Fixed::Fixed(const int inty)
+{
+	
+	Log("Constructor was called");
+}
+
+Fixed::Fixed(const float floaty)
+{
+	Log("Constructor was called");
+}
+
 Fixed::~Fixed()
 {
 	Log("Destructor was called");
 }
+
 Fixed &Fixed::operator=(const Fixed &fixed)
 {
 	Log("Copy assignement operator was called");

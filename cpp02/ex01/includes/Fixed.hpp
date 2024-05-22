@@ -8,18 +8,20 @@
 
 class Fixed
 {
-public:
+  public:
 	Fixed();
 	Fixed(const int inty);
 	Fixed(const float floaty);
 	~Fixed();
 	Fixed(const Fixed &fixed);
 	Fixed &operator=(const Fixed &fixed);
-	int getRawBits(void);
+	friend std::ostream& operator<<(std::ostream& COUT, const Fixed &fixed);
+	int getRawBits(void) const;
 	void setRawBits(int const raw);
+	int toInt(void) const;
+	float toFloat(void) const;
 
-
-private:
+  private:
 	int fixedPointInt;
 	static const int f_bits;
 };

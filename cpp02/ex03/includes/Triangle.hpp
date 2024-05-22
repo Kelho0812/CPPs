@@ -5,7 +5,7 @@
 class Triangle {
 
 public:
-  Triangle(const Point& A, Point& B, Point& C);
+  Triangle(const Point& pA, Point& pB, Point& pC);
   ~Triangle();
   Triangle (Triangle &old_triangle);
   Triangle &operator=(Triangle &old_triangle);

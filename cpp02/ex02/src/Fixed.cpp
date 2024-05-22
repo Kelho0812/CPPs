@@ -144,5 +144,18 @@ bool Fixed::operator!=(Fixed &fixed)
 
 Fixed Fixed::operator*(const Fixed &fixed) const
 {
-	return (this->fixedPointInt * fixed.fixedPointInt);
+	return (this->toFloat() * fixed.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed &fixed) const
+{
+	return (this->toFloat() + fixed.toFloat());
+}
+Fixed Fixed::operator-(const Fixed &fixed) const
+{
+	return (this->toFloat() / fixed.toFloat());
+}
+Fixed Fixed::operator+(const Fixed &fixed) const
+{
+	return (this->toFloat() + fixed.toFloat());
 }

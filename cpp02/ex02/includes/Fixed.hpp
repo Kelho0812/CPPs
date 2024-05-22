@@ -31,6 +31,10 @@ class Fixed
 	bool operator==(Fixed &fixed);
 	bool operator!=(Fixed &fixed);
 	Fixed operator*(const Fixed &fixed) const;
+	Fixed operator+(const Fixed &fixed) const;
+	Fixed operator-(const Fixed &fixed) const;
+	Fixed operator/(const Fixed &fixed) const;
+
 
   private:
 	int fixedPointInt;

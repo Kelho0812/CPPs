@@ -20,10 +20,13 @@ Point::~Point()
 Point::Point(const Point &point)
 {
 	this->x = point.x;
+	this->y = point.y;
+
 }
 Point &Point::operator=(const Point &point)
 {
 	this->x = point.x;
+	this->y = point.y;
 	return *this;
 }
 

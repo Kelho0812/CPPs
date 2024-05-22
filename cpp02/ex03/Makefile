@@ -22,7 +22,8 @@ ODIR := obj
 # Source files
 SOURCES := main.cpp \
 			Fixed.cpp \
-			Point.cpp 
+			Point.cpp \
+			Triangle.cpp \
 
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))

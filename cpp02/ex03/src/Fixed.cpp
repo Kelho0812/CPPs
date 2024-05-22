@@ -67,7 +67,7 @@ std::ostream &operator<<(std::ostream &COUT, const Fixed &fixed)
 	return COUT;
 }
 
-Fixed& Fixed::operator++()
+Fixed &Fixed::operator++()
 {
 	fixedPointInt++;
 	return *this;
@@ -80,7 +80,7 @@ Fixed Fixed::operator++(int)
 	return temp;
 }
 
-Fixed& Fixed::operator--()
+Fixed &Fixed::operator--()
 {
 	fixedPointInt--;
 	return *this;
@@ -98,15 +98,16 @@ bool Fixed::operator>(Fixed &fixed)
 	if (this->fixedPointInt > fixed.fixedPointInt)
 		return true;
 	else
-	 return false;
+		return false;
 }
 
 bool Fixed::operator>=(Fixed &fixed)
 {
-	if (this->fixedPointInt > fixed.fixedPointInt || this->fixedPointInt == fixed.fixedPointInt)
+	if (this->fixedPointInt > fixed.fixedPointInt ||
+		this->fixedPointInt == fixed.fixedPointInt)
 		return true;
 	else
-	 return false;
+		return false;
 }
 
 bool Fixed::operator<(Fixed &fixed)
@@ -114,24 +115,24 @@ bool Fixed::operator<(Fixed &fixed)
 	if (this->fixedPointInt < fixed.fixedPointInt)
 		return true;
 	else
-	 return false;
+		return false;
 }
 
 bool Fixed::operator<=(Fixed &fixed)
 {
-	if (this->fixedPointInt < fixed.fixedPointInt || this->fixedPointInt == fixed.fixedPointInt)
+	if (this->fixedPointInt < fixed.fixedPointInt ||
+		this->fixedPointInt == fixed.fixedPointInt)
 		return true;
 	else
-	 return false;
+		return false;
 }
-
 
 bool Fixed::operator==(Fixed &fixed)
 {
 	if (this->fixedPointInt == fixed.fixedPointInt)
 		return true;
 	else
-	 return false;
+		return false;
 }
 
 bool Fixed::operator!=(Fixed &fixed)
@@ -139,7 +140,7 @@ bool Fixed::operator!=(Fixed &fixed)
 	if (this->fixedPointInt != fixed.fixedPointInt)
 		return true;
 	else
-	 return false;
+		return false;
 }
 
 Fixed Fixed::operator*(const Fixed &fixed) const

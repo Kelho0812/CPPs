@@ -1,3 +1,5 @@
+#pragma once
+
 #include "./Point.hpp"
 
 class Triangle {
@@ -7,6 +9,9 @@ public:
   ~Triangle();
   Triangle (Triangle &old_triangle);
   Triangle &operator=(Triangle &old_triangle);
+  Point GetA();
+  Point GetB();
+  Point GetC();
 
 private:
   Point A;

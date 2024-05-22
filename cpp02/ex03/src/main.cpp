@@ -2,22 +2,87 @@
 #include "../includes/Point.hpp"
 #include "../includes/Triangle.hpp"
 
-#include <iostream>
+float calculate_w1(Triangle T, Point P);
+float calculate_w2(Triangle T, Point P, float w1);
+void checkIfPointInside(float w1, float w2, Triangle T, Point P);
 
 int main(void)
 {
 	Point pa(Fixed(0.0f), Fixed(0.0f));
 	Point pb(Fixed(0.0f), Fixed(5.0f));
-	Point pc(Fixed(5.0f), Fixed(0.0f));
+	Point pc(Fixed(5.0f), Fixed(2.0f));
+	Point targetPoint(0.0f, 0.0f);
 	Triangle T(pa, pb, pc);
 
-	std::cout << "a.y is " << pa.GetY() << std::endl;
-	std::cout << "A.y is " << T.GetA().GetY() << std::endl;
-	std::cout << "a.x is " << pa.GetX() << std::endl;
-	std::cout << "A.x is " << T.GetA().GetX() << std::endl;
-	std::cout << "A.x is " << T.GetA().GetX() << std::endl;
-	std::cout << "B.x is " << T.GetB().GetX() << std::endl;
-	std::cout << "B.y is " << T.GetB().GetY() << std::endl;
-	std::cout << "C.x is " << T.GetC().GetX() << std::endl;
-	std::cout << "C.y is " << T.GetC().GetY() << std::endl;
+	float w1 = calculate_w1(T, targetPoint);
+	float w2 = calculate_w2(T, targetPoint, w1);
+
+	checkIfPointInside(w1, w2, T, targetPoint);
+}
+
+float calculate_w1(Triangle T, Point P)
+{
+	float w1;
+	float Ax = T.GetA().GetX();
+	float Bx = T.GetB().GetX();
+	float Cx = T.GetC().GetX();
+	float Ay = T.GetA().GetY();
+	float By = T.GetB().GetY();
+	float Cy = T.GetC().GetY();
+	float Py = P.GetY();
+	float Px = P.GetX();
+
+	w1 = (Ax * (Cy - Ay) + (Py - Ay) * (Cx - Ax) - Px * (Cy - Ay)) /
+		 ((By - Ay) * (Cx - Ax) - (Bx - Ax) * (Cy - Ay));
+	return w1;
+}
+
+float calculate_w2(Triangle T, Point P, float w1)
+{
+	float w2;
+	float Ay = T.GetA().GetY();
+	float By = T.GetB().GetY();
+	float Cy = T.GetC().GetY();
+	float Py = P.GetY();
+
+	if (Cy - Ay == 0)
+	{
+		// Handle the error, e.g., by setting w2 to a default value or throwing an exception
+		w2 = 0; // or throw std::runtime_error("Division by zero");
+	}
+	else
+	{
+		w2 = (Py - Ay - w1 * (By - Ay)) / (Cy - Ay);
+	}
+	return w2;
+}
+
+void checkIfPointInside(float w1, float w2, Triangle T, Point P)
+{
+	float Ax = T.GetA().GetX();
+	float Bx = T.GetB().GetX();
+	float Cx = T.GetC().GetX();
+	float Ay = T.GetA().GetY();
+	float By = T.GetB().GetY();
+	float Cy = T.GetC().GetY();
+	float Py = P.GetY();
+	float Px = P.GetX();
+
+	if (Px == Ax && Py == Ay) {
+		Log("The Point is on Vertice A");
+	}
+	else if (Px == Bx && Py == By) {
+		Log("The Point is on Vertice B");
+	}
+	else if (Px == Cx && Py == Cy) {
+		Log("The Point is on Vertice C");
+	}
+	else if (w1 >= 0 && w2 >= 0 && (w1 + w2 < 1))
+	{
+		Log("The Point is inside the triangle");
+	}
+	else
+	{
+		Log("The Point is NOT inside the triangle");
+	}
 }

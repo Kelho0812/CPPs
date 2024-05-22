@@ -20,7 +20,7 @@ public:
 
 
 private:
-	int integer;
+	int fixedPointInt;
 	static const int f_bits;
 };
 

@@ -1,7 +1,7 @@
 #include "../includes/Triangle.hpp"
 #include "../includes/Point.hpp"
 
-Triangle::Triangle(Point A, Point B, Point C)
+Triangle::Triangle(const Point& A, Point& B, Point& C)
 {
 	this->A = A;
 	this->B = B;
@@ -29,13 +29,13 @@ Triangle &Triangle::operator=(Triangle &old_triangle)
 
 Point Triangle::GetA()
 {
-	return A;
+	return this->A;
 }
 Point Triangle::GetB()
 {
-	return B;
+	return this->B;
 }
 Point Triangle::GetC()
 {
-	return C;
+	return this->C;
 }

@@ -47,8 +47,7 @@ float calculate_w2(Triangle T, Point P, float w1)
 
 	if (Cy - Ay == 0)
 	{
-		// Handle the error, e.g., by setting w2 to a default value or throwing an exception
-		w2 = 0; // or throw std::runtime_error("Division by zero");
+		w2 = 0;
 	}
 	else
 	{

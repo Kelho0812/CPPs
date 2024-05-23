@@ -13,9 +13,9 @@ class Fixed
 	Fixed(const int inty);
 	Fixed(const float floaty);
 	~Fixed();
-	Fixed(const Fixed &fixed);
-	Fixed &operator=(const Fixed &fixed);
-	friend std::ostream& operator<<(std::ostream& COUT, const Fixed &fixed);
+	Fixed(const Fixed& fixed);
+	Fixed& operator=(const Fixed& fixed);
+	friend std::ostream& operator<<(std::ostream& COUT, const Fixed& fixed);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	int toInt(void) const;
@@ -24,17 +24,20 @@ class Fixed
 	Fixed operator++(int);
 	Fixed& operator--();
 	Fixed operator--(int);
-	bool operator>(Fixed &fixed);
-	bool operator>=(Fixed &fixed);
-	bool operator<(Fixed &fixed);
-	bool operator<=(Fixed &fixed);
-	bool operator==(Fixed &fixed);
-	bool operator!=(Fixed &fixed);
-	Fixed operator*(const Fixed &fixed) const;
-	Fixed operator+(const Fixed &fixed) const;
-	Fixed operator-(const Fixed &fixed) const;
-	Fixed operator/(const Fixed &fixed) const;
-
+	bool operator>(const Fixed& fixed);
+	bool operator>=(const Fixed& fixed);
+	bool operator<(const Fixed& fixed);
+	bool operator<=(const Fixed& fixed);
+	bool operator==(const Fixed& fixed);
+	bool operator!=(const Fixed& fixed);
+	Fixed operator*(const Fixed& fixed);
+	Fixed operator+(const Fixed& fixed);
+	Fixed operator-(const Fixed& fixed);
+	Fixed operator/(const Fixed& fixed);
+	static const Fixed max(const Fixed& fixed, const Fixed& fixed2);
+	static const Fixed min(const Fixed& fixed, const Fixed& fixed2);
+	static  Fixed max(Fixed& fixed, Fixed& fixed2);
+	static  Fixed min(Fixed& fixed, Fixed& fixed2);
 
   private:
 	int fixedPointInt;

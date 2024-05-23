@@ -13,9 +13,8 @@ class Fixed
 	Fixed(const int inty);
 	Fixed(const float floaty);
 	~Fixed();
-	Fixed(const Fixed &fixed);
-	Fixed &operator=(const Fixed &fixed);
-	friend std::ostream& operator<<(std::ostream& COUT, const Fixed &fixed);
+	Fixed(const Fixed& fixed);
+	Fixed& operator=(const Fixed& fixed);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	int toInt(void) const;
@@ -25,5 +24,7 @@ class Fixed
 	int fixedPointInt;
 	static const int f_bits;
 };
+
+std::ostream& operator<<(std::ostream& COUT, const Fixed& fixed);
 
 #endif // __FIXED_HPP__

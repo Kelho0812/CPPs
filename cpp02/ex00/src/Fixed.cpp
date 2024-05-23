@@ -18,7 +18,7 @@ Fixed &Fixed::operator=(const Fixed &fixed)
 
 Fixed::Fixed(const Fixed &fixed)
 {
-	*this = fixed;
+	this->fixedPointInt = fixed.fixedPointInt;
 }
 void Fixed::setRawBits(int const raw)
 {

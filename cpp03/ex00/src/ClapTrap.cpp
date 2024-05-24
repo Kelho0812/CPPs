@@ -65,30 +65,30 @@ void ClapTrap::noEnergyLog()
 
 void ClapTrap::constructorLog()
 {
-	cout << "A new ClapTrap named " << this->name << " was constructed." << endl;
+	cout << "🤖  A new ClapTrap named " << this->name << " was constructed." << endl;
 }
 
 void ClapTrap::destructorLog()
 {
-	cout << "A new ClapTrap named " << this->name << " was destroyed." << endl;
+	cout << "💀   A ClapTrap named " << this->name << " was destroyed." << endl;
 }
 
 void ClapTrap::atackLog(string target)
 {
-	cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->attackDamage
+	cout << "🗡️   ClapTrap " << this->name << " attacks " << target << " causing " << this->attackDamage
 		 << " points of damage!" << endl;
-	cout << "ClapTrap " << this->name << " has now " << this->energyPoints << " energy points left." << endl;
+	cout << "🗡️   ClapTrap " << this->name << " has now " << this->energyPoints << " energy points left." << endl;
 }
 
 void ClapTrap::beRepairedLog(unsigned int amount, int energyPoints)
 {
-	cout << "ClapTrap " << this->name << " was repaired for " << amount << " hit points." << endl;
-	cout << "ClapTrap " << name << " has now " << this->hitPoints << " hit points left." << endl;
-	cout << "ClapTrap " << this->name << " has now " << energyPoints << " energy points." << endl;
+	cout << "❤️‍🩹   ClapTrap " << this->name << " was repaired for " << amount << " hit points." << endl;
+	cout << "❤️‍🩹   ClapTrap " << name << " has now " << this->hitPoints << " hit points left." << endl;
+	cout << "❤️‍🩹   ClapTrap " << this->name << " has now " << energyPoints << " energy points." << endl;
 }
 
 void ClapTrap::takeDamageLog(unsigned int amount)
 {
-	cout << "ClapTrap " << name << " takes " << amount << " points of damage !" << endl;
-	cout << "ClapTrap " << name << " has now " << this->hitPoints << " hit points left." << endl;
+	cout << "💔   ClapTrap " << name << " takes " << amount << " points of damage !" << endl;
+	cout << "💔   ClapTrap " << name << " has now " << this->hitPoints << " hit points left." << endl;
 }

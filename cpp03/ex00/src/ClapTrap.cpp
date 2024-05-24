@@ -33,8 +33,6 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& originalClapTrap)
 	return *this;
 }
 
-
-
 void ClapTrap::attack(const string& target)
 {
 	if (this->energyPoints > 0)
@@ -51,8 +49,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	this->hitPoints -= amount;
 	takeDamageLog(amount);
-
 }
+
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	this->hitPoints += amount;
@@ -60,30 +58,35 @@ void ClapTrap::beRepaired(unsigned int amount)
 	beRepairedLog(amount, this->energyPoints);
 }
 
-
 void ClapTrap::noEnergyLog()
 {
 	cout << "Clap trap " << this->name << " has no energy left." << endl;
 }
+
 void ClapTrap::constructorLog()
 {
 	cout << "A new ClapTrap named " << this->name << " was constructed." << endl;
 }
+
 void ClapTrap::destructorLog()
 {
 	cout << "A new ClapTrap named " << this->name << " was destroyed." << endl;
 }
+
 void ClapTrap::atackLog(string target)
 {
-	cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->attackDamage << " points of damage!" << endl;
+	cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->attackDamage
+		 << " points of damage!" << endl;
 	cout << "ClapTrap " << this->name << " has now " << this->energyPoints << " energy points left." << endl;
 }
+
 void ClapTrap::beRepairedLog(unsigned int amount, int energyPoints)
 {
 	cout << "ClapTrap " << this->name << " was repaired for " << amount << " hit points." << endl;
 	cout << "ClapTrap " << name << " has now " << this->hitPoints << " hit points left." << endl;
 	cout << "ClapTrap " << this->name << " has now " << energyPoints << " energy points." << endl;
 }
+
 void ClapTrap::takeDamageLog(unsigned int amount)
 {
 	cout << "ClapTrap " << name << " takes " << amount << " points of damage !" << endl;

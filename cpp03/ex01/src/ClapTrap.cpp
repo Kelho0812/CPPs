@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(string name)
 ClapTrap::~ClapTrap()
 {
 	Log log;
-	log.destructorLog(this->type, this->name);
+	log.destructorLog("ClapTrap ", this->name);
 }
 
 ClapTrap::ClapTrap(const ClapTrap& originalClapTrap)

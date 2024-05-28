@@ -1,8 +1,10 @@
 #include "ClapTrap.hpp"
 class ScavTrap : public ClapTrap
 {
-  public:
+  private:
 	ScavTrap();
+
+  public:
 	ScavTrap(string name);
 	~ScavTrap();
 	ScavTrap(const ScavTrap&);

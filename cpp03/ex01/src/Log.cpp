@@ -39,3 +39,8 @@ void Log::takeDamageLog(string type, string name,unsigned int amount, int hitPoi
 	cout << "💔   " << type << " " << name << " has now " << hitPoint
 		 << " hit points left." << endl;
 }
+
+void Log::guardGateLog(string type, string name)
+{
+	cout << "⛨    " << type << " " << name << " is now on Gate Keeper mode." << endl;
+}

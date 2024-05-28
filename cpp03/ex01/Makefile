@@ -22,6 +22,8 @@ ODIR := obj
 # Source files
 SOURCES := main.cpp \
 			ClapTrap.cpp \
+			ScavTrap.cpp \
+			Log.cpp \
 
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))

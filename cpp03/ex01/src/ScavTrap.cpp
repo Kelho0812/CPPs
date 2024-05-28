@@ -38,3 +38,22 @@ void ScavTrap::guardGate(void)
 
 	log.guardGateLog(this->type, this->name);
 }
+
+ScavTrap::ScavTrap(const ScavTrap& originalScavTrap) : ClapTrap(originalScavTrap)
+{
+	this->name = originalScavTrap.name;
+	this->hitPoints = originalScavTrap.hitPoints;
+	this->energyPoints = originalScavTrap.energyPoints;
+	this->attackDamage = originalScavTrap.attackDamage;
+	this->type = originalScavTrap.type;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& originalScavTrap)
+{
+	this->name = originalScavTrap.name;
+	this->hitPoints = originalScavTrap.hitPoints;
+	this->energyPoints = originalScavTrap.energyPoints;
+	this->attackDamage = originalScavTrap.attackDamage;
+	this->type = originalScavTrap.type;
+	return *this;
+}

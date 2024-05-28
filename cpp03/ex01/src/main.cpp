@@ -7,5 +7,7 @@ int main(void)
 	clappy.attack("ABILIO");
 	ScavTrap wowzers("Tonio");
 	wowzers.attack("JOSEFINA");
+	ScavTrap toni(wowzers);
+	toni.attack("ABOBORA");
 	return 0;
 }

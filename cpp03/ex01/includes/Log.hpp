@@ -17,4 +17,6 @@ class Log
 	void beRepairedLog(string type, string name, unsigned amount, int hitPoint, int energyPoints);
 	void takeDamageLog(string type, string name,unsigned int amount, int hitPoint);
 	void guardGateLog(string type, string name);
+	void ScavTrapAttackLog(string type, string name, string target, int attackDamage);
+	
 };

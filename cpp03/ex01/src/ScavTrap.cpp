@@ -57,3 +57,10 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& originalScavTrap)
 	this->type = originalScavTrap.type;
 	return *this;
 }
+
+void ScavTrap::attack(const string& target)
+{
+	Log log;
+
+	log.ScavTrapAttackLog(this->type, this->name, target, this->attackDamage);
+}

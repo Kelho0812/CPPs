@@ -22,7 +22,6 @@ ClapTrap::ClapTrap(string name)
 	this->attackDamage = 0;
 	this->type = "ClapTrap";
 	log.constructorLog(this->type, this->name);
-
 }
 
 ClapTrap::~ClapTrap()
@@ -77,3 +76,23 @@ void ClapTrap::beRepaired(unsigned int amount)
 	log.beRepairedLog(this->type, this->name, amount, this->hitPoints, this->energyPoints);
 }
 
+int ClapTrap::getHitPoints(void)
+{
+	return this->hitPoints;
+}
+string ClapTrap::getName(void)
+{
+	return this->name;
+}
+string ClapTrap::getType(void)
+{
+	return this->type;
+}
+int ClapTrap::getEnergyPoints(void)
+{
+	return this->energyPoints;
+}
+int ClapTrap::getAttackDamage(void)
+{
+	return this->attackDamage;
+}

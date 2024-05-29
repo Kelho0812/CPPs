@@ -17,7 +17,11 @@ class ClapTrap
 	void attack(const string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
+	int getHitPoints(void);
+	string getName(void);
+	string getType (void);
+	int getEnergyPoints(void);
+	int getAttackDamage(void);
 
   private:
 	string name;

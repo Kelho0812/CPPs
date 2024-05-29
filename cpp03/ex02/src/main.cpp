@@ -5,5 +5,6 @@ int main(void)
 {
 	FragTrap toni("Toni");
 	toni.highFiveGuys();
+	toni.attack("ze");
 	return 0;
 }

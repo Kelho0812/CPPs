@@ -5,14 +5,21 @@
 float calculate_w1(Triangle T, Point P);
 float calculate_w2(Triangle T, Point P, float w1);
 void checkIfPointInside(float w1, float w2, Triangle T, Point P);
+bool isValidTriangle(Triangle T);
 
 int main(void)
 {
 	Point pa(Fixed(0.0f), Fixed(0.0f));
 	Point pb(Fixed(0.0f), Fixed(5.0f));
 	Point pc(Fixed(5.0f), Fixed(2.0f));
-	Point targetPoint(0.0f, 0.0f);
+	Point targetPoint(1.0f, 1.0f);
 	Triangle T(pa, pb, pc);
+
+	if (!isValidTriangle(T))
+	{
+		Log("Not a valid triangle");
+		return (1);
+	}
 
 	float w1 = calculate_w1(T, targetPoint);
 	float w2 = calculate_w2(T, targetPoint, w1);
@@ -54,4 +61,23 @@ float calculate_w2(Triangle T, Point P, float w1)
 		w2 = (Py - Ay - w1 * (By - Ay)) / (Cy - Ay);
 	}
 	return w2;
+}
+
+bool isValidTriangle(Triangle T)
+{
+	float Ax = T.GetA().GetX();
+	float Bx = T.GetB().GetX();
+	float Cx = T.GetC().GetX();
+	float Ay = T.GetA().GetY();
+	float By = T.GetB().GetY();
+	float Cy = T.GetC().GetY();
+
+	if ((Ax == Bx && Ax == Cx) || (Ay == By && Ay == Cy))
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }

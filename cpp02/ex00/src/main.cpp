@@ -13,6 +13,8 @@ int main(int argc, char const* argv[])
 	Log(a.getRawBits());
 	Log(b.getRawBits());
 	Log(c.getRawBits());
+	a.setRawBits(6);
+	Log(a.getRawBits());
 	return 0;
 }
 

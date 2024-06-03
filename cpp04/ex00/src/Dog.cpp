@@ -4,9 +4,11 @@
 Dog::Dog() : Animal()
 {
 	this->_type = "Dog";
+	std::cout << "🐶   A new Dog was created" << std::endl;
 }
 Dog::~Dog()
 {
+	std::cout << "🐶   A Dog went to Dog Heaven" << std::endl;
 }
 Dog::Dog(const Dog& originalDog) : Animal(originalDog)
 {
@@ -24,5 +26,5 @@ Dog& Dog::operator=(const Dog& originalDog)
 
 void Dog::makeSound()
 {
-	cout << "*Woof Woof*" << endl;
+	std::cout << "🐶   *Woof Woof*" << std::endl;
 }

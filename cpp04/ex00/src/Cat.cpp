@@ -3,9 +3,13 @@
 
 Cat::Cat()
 {
+	this->_type = "Cat";
+	std::cout << "😺   A new Cat was created" << std::endl;
+
 }
 Cat::~Cat()
 {
+	std::cout << "😺   A Cat went to Cat Heaven" << std::endl;
 }
 Cat::Cat(const Cat& originalCat) : Animal(originalCat)
 {
@@ -23,5 +27,5 @@ Cat& Cat::operator=(const Cat& originalCat)
 
 void Cat::makeSound()
 {
-	cout << "*Meow Meow*" << endl;
+	std::cout << "😺   *Meow Meow*" << std::endl;
 }

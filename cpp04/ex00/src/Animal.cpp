@@ -3,9 +3,11 @@
 Animal::Animal()
 {
 	this->_type = "Generic Animal";
+	std::cout << "🦄   A Generic & Common Animal was created" << std::endl;
 }
 Animal::~Animal()
 {
+	std::cout << "🦄   A Generic & Common Animal went back to his fairy tale land" << std::endl;
 }
 Animal::Animal(const Animal& originalAnimal)
 {
@@ -19,5 +21,5 @@ Animal& Animal::operator=(const Animal& originalAnimal)
 
 void Animal::makeSound(void)
 {
-	cout << "*Generic Animal Noises*";
+	std::cout << "🦄   *Generic Animal Noises*" << std::endl;
 }

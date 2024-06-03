@@ -6,11 +6,12 @@
 
 class Dog : public virtual Animal
 {
+  public:
 	Dog();
 	~Dog();
 	Dog(const Dog& originalDog);
 	Dog& operator=(const Dog& originalDog);
-	void makeSound() override;
+	void makeSound();
 };
 
 #endif

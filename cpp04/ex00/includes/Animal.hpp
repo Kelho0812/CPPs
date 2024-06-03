@@ -5,14 +5,10 @@
 #include <iostream>
 #include <string>
 
-#define string std::string
-#define cout std::cout
-#define endl std::endl
-
 class Animal
 {
   protected:
-	string _type;
+	std::string _type;
 
   public:
 	Animal();

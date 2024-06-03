@@ -25,9 +25,9 @@ class ClapTrap
 
 
   protected:
-	string name;
-	string type;
-	int hitPoints;
-	int energyPoints;
-	int attackDamage;
+	string _name;
+	string _type;
+	int _hitPoints;
+	int _energyPoints;
+	int _attackDamage;
 };

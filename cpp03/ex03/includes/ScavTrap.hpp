@@ -1,12 +1,16 @@
 #pragma once
 
 #include "ClapTrap.hpp"
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
-  private:
-	ScavTrap();
+
+  protected:
+	int _hitPoints;
+	int _energyPoints;
+	int _attackDamage;
 
   public:
+	ScavTrap();
 	ScavTrap(string name);
 	~ScavTrap();
 	ScavTrap(const ScavTrap&);

@@ -5,56 +5,56 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	Log log;
-	this->name = "Toni";
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-	this->type = "ScavTrap";
-	log.constructorLog(this->type, this->name);
+	this->_name = "Toni";
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	this->_type = "ScavTrap";
+	log.constructorLog(this->_type, this->_name);
 }
 
-ScavTrap::ScavTrap(string name) : ClapTrap(name)
+ScavTrap::ScavTrap(string _name) : ClapTrap(_name)
 {
 	Log log;
 
-	this->name = name;
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-	this->type = "ScavTrap";
-	log.constructorLog(this->type, this->name);
+	this->_name = _name;
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	this->_type = "ScavTrap";
+	log.constructorLog(this->_type, this->_name);
 }
 
 ScavTrap::~ScavTrap()
 {
 	Log log;
 
-	log.destructorLog(this->type, this->name);
+	log.destructorLog(this->_type, this->_name);
 }
 
 void ScavTrap::guardGate(void)
 {
 	Log log;
 
-	log.guardGateLog(this->type, this->name);
+	log.guardGateLog(this->_type, this->_name);
 }
 
 ScavTrap::ScavTrap(const ScavTrap& originalScavTrap) : ClapTrap(originalScavTrap)
 {
-	this->name = originalScavTrap.name;
-	this->hitPoints = originalScavTrap.hitPoints;
-	this->energyPoints = originalScavTrap.energyPoints;
-	this->attackDamage = originalScavTrap.attackDamage;
-	this->type = originalScavTrap.type;
+	this->_name = originalScavTrap._name;
+	this->_hitPoints = originalScavTrap._hitPoints;
+	this->_energyPoints = originalScavTrap._energyPoints;
+	this->_attackDamage = originalScavTrap._attackDamage;
+	this->_type = originalScavTrap._type;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& originalScavTrap)
 {
-	this->name = originalScavTrap.name;
-	this->hitPoints = originalScavTrap.hitPoints;
-	this->energyPoints = originalScavTrap.energyPoints;
-	this->attackDamage = originalScavTrap.attackDamage;
-	this->type = originalScavTrap.type;
+	this->_name = originalScavTrap._name;
+	this->_hitPoints = originalScavTrap._hitPoints;
+	this->_energyPoints = originalScavTrap._energyPoints;
+	this->_attackDamage = originalScavTrap._attackDamage;
+	this->_type = originalScavTrap._type;
 	return *this;
 }
 
@@ -62,5 +62,5 @@ void ScavTrap::attack(const string& target)
 {
 	Log log;
 
-	log.ScavTrapAttackLog(this->type, this->name, target, this->attackDamage);
+	log.ScavTrapAttackLog(this->_type, this->_name, target, this->_attackDamage);
 }

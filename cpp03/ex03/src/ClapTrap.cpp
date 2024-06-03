@@ -5,45 +5,45 @@
 ClapTrap::ClapTrap()
 {
 	Log log;
-	this->name = "Random Schmuck";
-	this->hitPoints = 10;
-	this->energyPoints = 10;
-	this->attackDamage = 0;
-	this->type = "Claptrap";
-	log.constructorLog(this->type, this->name);
+	this->_name = "Random Schmuck";
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
+	this->_type = "Claptrap";
+	log.constructorLog(this->_type, this->_name);
 }
 
 ClapTrap::ClapTrap(string name)
 {
 	Log log;
-	this->name = name;
-	this->hitPoints = 10;
-	this->energyPoints = 10;
-	this->attackDamage = 0;
-	this->type = "ClapTrap";
-	log.constructorLog(this->type, this->name);
+	this->_name = name;
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
+	this->_type = "ClapTrap";
+	log.constructorLog(this->_type, this->_name);
 }
 
 ClapTrap::~ClapTrap()
 {
 	Log log;
-	log.destructorLog("ClapTrap ", this->name);
+	log.destructorLog("ClapTrap ", this->_name);
 }
 
 ClapTrap::ClapTrap(const ClapTrap& originalClapTrap)
 {
-	this->name = originalClapTrap.name;
-	this->hitPoints = originalClapTrap.hitPoints;
-	this->energyPoints = originalClapTrap.energyPoints;
-	this->attackDamage = originalClapTrap.attackDamage;
+	this->_name = originalClapTrap._name;
+	this->_hitPoints = originalClapTrap._hitPoints;
+	this->_energyPoints = originalClapTrap._energyPoints;
+	this->_attackDamage = originalClapTrap._attackDamage;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& originalClapTrap)
 {
-	this->name = originalClapTrap.name;
-	this->hitPoints = originalClapTrap.hitPoints;
-	this->energyPoints = originalClapTrap.energyPoints;
-	this->attackDamage = originalClapTrap.attackDamage;
+	this->_name = originalClapTrap._name;
+	this->_hitPoints = originalClapTrap._hitPoints;
+	this->_energyPoints = originalClapTrap._energyPoints;
+	this->_attackDamage = originalClapTrap._attackDamage;
 	return *this;
 }
 
@@ -51,48 +51,48 @@ void ClapTrap::attack(const string& target)
 {
 	Log log;
 
-	if (this->energyPoints > 0)
+	if (this->_energyPoints > 0)
 	{
-		energyPoints--;
-		log.attackLog(this->type, this->name, target, this->attackDamage);
+		_energyPoints--;
+		log.attackLog(this->_type, this->_name, target, this->_attackDamage);
 	}
 	else
 	{
-		log.noEnergyLog(this->type, this->name);
+		log.noEnergyLog(this->_type, this->_name);
 	}
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	Log log;
-	this->hitPoints -= amount;
-	log.takeDamageLog(this->type, this->name, amount, this->hitPoints);
+	this->_hitPoints -= amount;
+	log.takeDamageLog(this->_type, this->_name, amount, this->_hitPoints);
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	Log log;
-	this->hitPoints += amount;
-	energyPoints--;
-	log.beRepairedLog(this->type, this->name, amount, this->hitPoints, this->energyPoints);
+	this->_hitPoints += amount;
+	_energyPoints--;
+	log.beRepairedLog(this->_type, this->_name, amount, this->_hitPoints, this->_energyPoints);
 }
 
 int ClapTrap::getHitPoints(void)
 {
-	return this->hitPoints;
+	return this->_hitPoints;
 }
 string ClapTrap::getName(void)
 {
-	return this->name;
+	return this->_name;
 }
 string ClapTrap::getType(void)
 {
-	return this->type;
+	return this->_type;
 }
 int ClapTrap::getEnergyPoints(void)
 {
-	return this->energyPoints;
+	return this->_energyPoints;
 }
 int ClapTrap::getAttackDamage(void)
 {
-	return this->attackDamage;
+	return this->_attackDamage;
 }

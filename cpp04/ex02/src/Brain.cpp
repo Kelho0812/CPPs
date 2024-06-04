@@ -33,3 +33,11 @@ void Brain::checkThoughts(void)
 		std::cout << "Thought " << i + 1 << " " << this->_ideas[i] << std::endl;
 	}
 }
+
+void Brain::setIdeas(const std::string& ideas)
+{
+	for (int i = 0; i < 100; i++)
+	{
+		this->_ideas[i] = ideas;
+	}
+}

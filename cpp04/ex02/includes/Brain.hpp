@@ -15,6 +15,7 @@ class Brain
 	Brain(const Brain& originalBrain);
 	Brain& operator=(const Brain& originalBrain);
 	void checkThoughts(void);
+	void setIdeas(const std::string& ideas);
 };
 
 #endif

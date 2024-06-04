@@ -7,9 +7,7 @@ Brain::Brain()
 		this->_ideas[i] = "*random thoughts*";
 	}
 }
-Brain::~Brain()
-{
-}
+Brain::~Brain() {}
 Brain::Brain(const Brain& originalBrain)
 {
 	for (int i = 0; i < 100; i++)
@@ -31,5 +29,13 @@ void Brain::checkThoughts(void)
 	for (int i = 0; i < 100; i++)
 	{
 		std::cout << "Thought " << i + 1 << " " << this->_ideas[i] << std::endl;
+	}
+}
+
+void Brain::setIdeas(std::string newIdea)
+{
+	for (int i = 0; i < 100; i++)
+	{
+		this->_ideas[i] = newIdea;
 	}
 }

@@ -18,6 +18,11 @@ Dog::~Dog()
 Dog::Dog(const Dog& originalDog) : Animal(originalDog)
 {
 	this->_type = originalDog._type;
+	if (originalDog._brain)
+	{
+		this->_brain = new Brain(*(originalDog._brain));
+		this->_brain->setIdeas("I AM A COPY");
+	}
 }
 Dog& Dog::operator=(const Dog& originalDog)
 {
@@ -25,13 +30,18 @@ Dog& Dog::operator=(const Dog& originalDog)
 	{
 		Animal::operator=(originalDog);
 		this->_type = originalDog._type;
+
+		delete this->_brain;
+
+		if (originalDog._brain)
+		{
+			this->_brain = new Brain(*(originalDog._brain));
+			this->_brain->setIdeas("I AM A COPY");
+		}
 	}
 	return *this;
 }
 
 void Dog::makeSound() { std::cout << "🐶   *Woof Woof*" << std::endl; }
 
-void Dog::checkThoughts()
-{
-	this->_brain->checkThoughts();
-}
+void Dog::checkThoughts() { this->_brain->checkThoughts(); }

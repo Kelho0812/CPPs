@@ -18,6 +18,11 @@ Cat::~Cat()
 Cat::Cat(const Cat& originalCat) : Animal(originalCat)
 {
 	this->_type = originalCat._type;
+	if (originalCat._brain)
+	{
+		this->_brain = new Brain(*(originalCat._brain));
+		this->_brain->setIdeas("I AM A COPY");
+	}
 }
 Cat& Cat::operator=(const Cat& originalCat)
 {
@@ -25,13 +30,18 @@ Cat& Cat::operator=(const Cat& originalCat)
 	{
 		Animal::operator=(originalCat);
 		this->_type = originalCat._type;
+
+		delete this->_brain;
+
+		if (originalCat._brain)
+		{
+			this->_brain = new Brain(*(originalCat._brain));
+			this->_brain->setIdeas("I AM A COPY");
+		}
 	}
 	return *this;
 }
 
 void Cat::makeSound() { std::cout << "😺   *Meow Meow*" << std::endl; }
 
-void Cat::checkThoughts()
-{
-	this->_brain->checkThoughts();
-}
+void Cat::checkThoughts() { this->_brain->checkThoughts(); }

@@ -15,14 +15,9 @@ class Animal
 	Animal(const Animal& originalAnimal);
 	Animal& operator=(const Animal& originalAnimal);
 	virtual void makeSound();
-	void checkThoughts();
-
+	virtual void checkThoughts() = 0;
   protected:
 	std::string _type;
-
-  private:
-	Brain* _brain;
-
 };
 
 #endif

@@ -3,12 +3,16 @@
 
 Cat::Cat()
 {
+	this->_brain = new Brain;
 	this->_type = "Cat";
 	std::cout << "😺   A new Cat was created" << std::endl;
-
 }
 Cat::~Cat()
 {
+	if (this->_brain)
+	{
+		delete this->_brain;
+	}
 	std::cout << "😺   A Cat went to Cat Heaven" << std::endl;
 }
 Cat::Cat(const Cat& originalCat) : Animal(originalCat)
@@ -25,7 +29,9 @@ Cat& Cat::operator=(const Cat& originalCat)
 	return *this;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() { std::cout << "😺   *Meow Meow*" << std::endl; }
+
+void Cat::checkThoughts()
 {
-	std::cout << "😺   *Meow Meow*" << std::endl;
+	this->_brain->checkThoughts();
 }

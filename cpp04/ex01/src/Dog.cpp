@@ -3,11 +3,16 @@
 
 Dog::Dog() : Animal()
 {
+	this->_brain = new Brain;
 	this->_type = "Dog";
 	std::cout << "🐶   A new Dog was created" << std::endl;
 }
 Dog::~Dog()
 {
+	if (this->_brain)
+	{
+		delete this->_brain;
+	}
 	std::cout << "🐶   A Dog went to Dog Heaven" << std::endl;
 }
 Dog::Dog(const Dog& originalDog) : Animal(originalDog)
@@ -24,7 +29,9 @@ Dog& Dog::operator=(const Dog& originalDog)
 	return *this;
 }
 
-void Dog::makeSound()
+void Dog::makeSound() { std::cout << "🐶   *Woof Woof*" << std::endl; }
+
+void Dog::checkThoughts()
 {
-	std::cout << "🐶   *Woof Woof*" << std::endl;
+	this->_brain->checkThoughts();
 }

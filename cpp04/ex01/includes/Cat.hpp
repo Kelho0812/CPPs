@@ -12,6 +12,10 @@ class Cat : public virtual Animal
 	Cat(const Cat& originalCat);
 	Cat& operator=(const Cat& originalCat);
 	void makeSound();
+	void checkThoughts();
+
+  private:
+	Brain* _brain;
 };
 
 #endif

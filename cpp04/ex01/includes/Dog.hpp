@@ -12,6 +12,10 @@ class Dog : public virtual Animal
 	Dog(const Dog& originalDog);
 	Dog& operator=(const Dog& originalDog);
 	void makeSound();
+	void checkThoughts();
+
+  private:
+	Brain* _brain;
 };
 
 #endif

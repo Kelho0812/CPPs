@@ -13,7 +13,7 @@ class Log
 	void constructorLog(string type, string name);
 	void destructorLog(string type, string name);
 	void noEnergyLog(string type, string name);
-	void attackLog(string type, string name, string target, int attackDamage);
+	void attackLog(string type, string name, string target, int attackDamage, int energyPoints);
 	void beRepairedLog(string type, string name, unsigned amount, int hitPoint, int energyPoints);
 	void takeDamageLog(string type, string name,unsigned int amount, int hitPoint);
 };

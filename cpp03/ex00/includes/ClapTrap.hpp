@@ -18,15 +18,15 @@ class ClapTrap
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	int getHitPoints(void);
-	string getName(void);
-	string getType (void);
 	int getEnergyPoints(void);
 	int getAttackDamage(void);
+	string getName(void);
+	string getType (void);
 
   private:
-	string name;
-	string type;
-	int hitPoints;
-	int energyPoints;
-	int attackDamage;
+	string _name;
+	string _type;
+	unsigned int _hitPoints;
+	unsigned int _energyPoints;
+	unsigned int _attackDamage;
 };

@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(string name)
 {
 	Log log;
 	this->_name = name;
-	this->_hitPoints = 1;
+	this->_hitPoints = 10;
 	this->_energyPoints = 10;
 	this->_attackDamage = 0;
 	this->_type = "ClapTrap";

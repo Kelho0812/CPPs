@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(string name)
 ClapTrap::~ClapTrap()
 {
 	Log log;
-	log.destructorLog("ClapTrap ", this->_name);
+	log.destructorLog(this->_type, this->_name);
 }
 
 ClapTrap::ClapTrap(const ClapTrap& originalClapTrap)
@@ -51,48 +51,63 @@ void ClapTrap::attack(const string& target)
 {
 	Log log;
 
-	if (this->_energyPoints > 0)
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
 		_energyPoints--;
-		log.attackLog(this->_type, this->_name, target, this->_attackDamage);
+		log.attackLog(this->_type, this->_name, target, this->_attackDamage,
+					  this->_energyPoints);
+	}
+	else if (this->_energyPoints <= 0)
+	{
+		log.noEnergyLog(this->_type, this->_name);
 	}
 	else
 	{
-		log.noEnergyLog(this->_type, this->_name);
+		cout << "💀   " << "ClapTrap " << this->_name << " is dead." << endl;
 	}
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	Log log;
-	this->_hitPoints -= amount;
-	log.takeDamageLog(this->_type, this->_name, amount, this->_hitPoints);
+	if ((this->_hitPoints >= amount))
+	{
+		this->_hitPoints -= amount;
+		log.takeDamageLog(this->_type, this->_name, amount, this->_hitPoints);
+	}
+	else
+	{
+		this->_hitPoints = 0;
+		cout << "💀   " << "ClapTrap " << this->_name << " is dead." << endl;
+	}
 }
-
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	Log log;
-	this->_hitPoints += amount;
-	_energyPoints--;
-	log.beRepairedLog(this->_type, this->_name, amount, this->_hitPoints, this->_energyPoints);
+	if (this->_energyPoints > 0 && this->_hitPoints < 10 &&
+		this->_hitPoints > 0)
+	{
+		this->_hitPoints += amount;
+		_energyPoints--;
+		log.beRepairedLog(this->_type, this->_name, amount, this->_hitPoints,
+						  this->_energyPoints);
+	}
+	else if (this->_energyPoints <= 0)
+	{
+		log.noEnergyLog(this->_type, this->_name);
+	}
+	else if (this->_hitPoints == 10)
+	{
+		cout << "💕   " << "ClapTrap " << this->_name
+			 << " is already at max health.";
+	}
+	else
+	{
+		cout << "💀   " << "ClapTrap " << this->_name << " is dead." << endl;
+	}
 }
 
-int ClapTrap::getHitPoints(void)
-{
-	return this->_hitPoints;
-}
-string ClapTrap::getName(void)
-{
-	return this->_name;
-}
-string ClapTrap::getType(void)
-{
-	return this->_type;
-}
-int ClapTrap::getEnergyPoints(void)
-{
-	return this->_energyPoints;
-}
-int ClapTrap::getAttackDamage(void)
-{
-	return this->_attackDamage;
-}
+int ClapTrap::getHitPoints(void) { return this->_hitPoints; }
+string ClapTrap::getName(void) { return this->_name; }
+string ClapTrap::getType(void) { return this->_type; }
+int ClapTrap::getEnergyPoints(void) { return this->_energyPoints; }
+int ClapTrap::getAttackDamage(void) { return this->_attackDamage; }

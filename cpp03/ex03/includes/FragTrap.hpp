@@ -3,11 +3,6 @@
 #include "ClapTrap.hpp"
 class FragTrap : public virtual ClapTrap
 {
-  protected:
-	int _hitPoints;
-	int _energyPoints;
-	int _attackDamage;
-
   public:
 	FragTrap();
 	FragTrap(string name);
@@ -15,4 +10,6 @@ class FragTrap : public virtual ClapTrap
 	FragTrap(const FragTrap&);
 	FragTrap& operator=(const FragTrap&);
 	void highFiveGuys(void);
+	private:
+	string _type;
 };

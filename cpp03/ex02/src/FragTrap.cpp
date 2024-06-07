@@ -5,49 +5,49 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	Log log;
-	this->name = "Toni";
-	this->hitPoints = 100;
-	this->energyPoints = 100;
-	this->attackDamage = 30;
-	this->type = "FragTrap";
-	log.constructorLog(this->type, this->name);
+	this->_name = "Toni";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
+	this->_type = "FragTrap";
+	log.constructorLog(this->_type, this->_name);
 }
 
-FragTrap::FragTrap(string name) : ClapTrap(name)
+FragTrap::FragTrap(string _name) : ClapTrap(_name)
 {
 	Log log;
 
-	this->name = name;
-	this->hitPoints = 100;
-	this->energyPoints = 100;
-	this->attackDamage = 30;
-	this->type = "FragTrap";
-	log.constructorLog(this->type, this->name);
+	this->_name = _name;
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
+	this->_type = "FragTrap";
+	log.constructorLog(this->_type, this->_name);
 }
 
 FragTrap::~FragTrap()
 {
 	Log log;
 
-	log.destructorLog(this->type, this->name);
+	log.destructorLog(this->_type, this->_name);
 }
 
 FragTrap::FragTrap(const FragTrap& originalFragTrap) : ClapTrap(originalFragTrap)
 {
-	this->name = originalFragTrap.name;
-	this->hitPoints = originalFragTrap.hitPoints;
-	this->energyPoints = originalFragTrap.energyPoints;
-	this->attackDamage = originalFragTrap.attackDamage;
-	this->type = originalFragTrap.type;
+	this->_name = originalFragTrap._name;
+	this->_hitPoints = originalFragTrap._hitPoints;
+	this->_energyPoints = originalFragTrap._energyPoints;
+	this->_attackDamage = originalFragTrap._attackDamage;
+	this->_type = originalFragTrap._type;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& originalFragTrap)
 {
-	this->name = originalFragTrap.name;
-	this->hitPoints = originalFragTrap.hitPoints;
-	this->energyPoints = originalFragTrap.energyPoints;
-	this->attackDamage = originalFragTrap.attackDamage;
-	this->type = originalFragTrap.type;
+	this->_name = originalFragTrap._name;
+	this->_hitPoints = originalFragTrap._hitPoints;
+	this->_energyPoints = originalFragTrap._energyPoints;
+	this->_attackDamage = originalFragTrap._attackDamage;
+	this->_type = originalFragTrap._type;
 	return *this;
 }
 
@@ -55,5 +55,5 @@ void FragTrap::highFiveGuys(void)
 {
 	Log log;
 
-	log.highFiveGuysLog(this->type, this->name);
+	log.highFiveGuysLog(this->_type, this->_name);
 }

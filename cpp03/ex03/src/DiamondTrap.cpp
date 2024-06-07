@@ -11,9 +11,9 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
 	Log log;
 	_name = "Random Diamond";
-	ClapTrap::_hitPoints = this->_hitPoints;
-	ClapTrap::_energyPoints = this->_energyPoints;
-	ClapTrap::_attackDamage = this->_attackDamage;
+	ClapTrap::_hitPoints = 100;
+	ClapTrap::_energyPoints = 50;
+	ClapTrap::_attackDamage = 30;
 	_type = "DiamondTrap";
 	log.constructorLog(this->_type, this->_name);
 }
@@ -22,9 +22,9 @@ DiamondTrap::DiamondTrap(string _name)
 {
 	Log log;
 	this->_name = _name;
-	ClapTrap::_hitPoints = this->_hitPoints;
-	ClapTrap::_energyPoints = this->_energyPoints;
-	ClapTrap::_attackDamage = this->_attackDamage;
+	ClapTrap::_hitPoints = 100;
+	ClapTrap::_energyPoints = 50;
+	ClapTrap::_attackDamage = 30;
 	_type = "DiamondTrap";
 	log.constructorLog(this->_type, this->_name);
 }
@@ -50,10 +50,6 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& originalDiamondTrap)
 	return *this;
 }
 
-void DiamondTrap::attack(string target)
-{
-	ScavTrap::attack(target);
-}
 void DiamondTrap::whoAmI(void)
 {
 	cout << "📛   My DiamondTrap name is " << this->_name << endl;

@@ -21,9 +21,9 @@ ODIR := obj
 
 # Source files
 SOURCES := main.cpp \
-			ICharacter.cpp \
+			AMateria.cpp\
 			Character.cpp \
-			AMateria.cpp \
+			Ice.cpp \
 
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))

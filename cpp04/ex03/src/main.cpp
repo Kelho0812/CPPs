@@ -3,7 +3,6 @@
 #include "../includes/Cure.hpp"
 #include "../includes/Character.hpp"
 #include "../includes/ICharacter.hpp"
-#include <iterator>
 
 int main(void)
 {

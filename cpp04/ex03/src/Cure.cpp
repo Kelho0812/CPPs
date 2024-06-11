@@ -3,7 +3,7 @@
 #include "../includes/ICharacter.hpp"
 #include <iostream>
 
-Cure::Cure(void): AMateria("Cure")
+Cure::Cure(void): AMateria("cure")
 {
 	std::cout << "Cure created with default constructor" << std::endl;
 }

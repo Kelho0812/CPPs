@@ -3,21 +3,25 @@
 #include "../includes/Cure.hpp"
 #include "../includes/Character.hpp"
 #include "../includes/ICharacter.hpp"
+#include "../includes/IMateriaSource.hpp"
+#include "../includes/MateriaSource.hpp"
 
-int main(void)
+int main()
 {
-	ICharacter* me = new Character("Ze");
-	AMateria *ice = new Ice();
-	AMateria *cure = new Cure();
-	me->equip(ice);
-	me->equip(cure);
-	me->unequip(4);
-	ice->use(*me);
-	cure->use(*me);
-	std::cout << me->getName() << std::endl;
-
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
 	delete me;
-	delete ice;
-	delete cure;
+	delete src;
 	return 0;
 }

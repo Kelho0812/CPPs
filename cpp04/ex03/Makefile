@@ -25,7 +25,7 @@ SOURCES := main.cpp \
 			Character.cpp \
 			Ice.cpp \
 			Cure.cpp \
-
+			MateriaSource.cpp \
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))
 

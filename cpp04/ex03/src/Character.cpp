@@ -48,10 +48,7 @@ Character& Character::operator=(const Character& originalCharacter)
 	return *this;
 }
 
-std::string const& Character::getName() const
-{
-	return this->_name;
-}
+std::string const& Character::getName() const { return this->_name; }
 void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
@@ -59,11 +56,14 @@ void Character::equip(AMateria* m)
 		if (this->inventory[i] == NULL)
 		{
 			this->inventory[i] = m;
-			std::cout << "Materia " << m->getType() << " added to inventory on slot " << i << std::endl;
+			std::cout << "Materia " << m->getType()
+					  << " added to inventory on slot " << i << std::endl;
 			return;
 		}
 	}
-	std::cout << "No free slots available in the inventory, please unequip a Materia first." << std::endl;
+	std::cout << "No free slots available in the inventory, please unequip a "
+				 "Materia first."
+			  << std::endl;
 }
 void Character::unequip(int idx)
 {
@@ -85,7 +85,18 @@ void Character::unequip(int idx)
 	}
 	_garbage[_garbageIndex] = this->inventory[idx];
 	this->inventory[idx] = NULL;
-	std::cout << "Materia " << _garbage[_garbageIndex]->getType() << " unequiped from slot " << idx << std::endl;
+	std::cout << "Materia " << _garbage[_garbageIndex]->getType()
+			  << " unequiped from slot " << idx << std::endl;
 	_garbageIndex++;
 }
-// void Character::use(int idx, ICharacter& target) { std::cout << "Used shit"; }
+void Character::use(int idx, ICharacter& target)
+{
+	if (this->inventory[idx] != NULL)
+	{
+		this->inventory[idx]->use(target);
+	}
+	else
+	{
+		std::cout << "Invalid index or no Materia to use." << std::endl;
+	}
+}

@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
+Bureaucrat::Bureaucrat(void) : _name("defaultBureaucrat"), _grade(150)
 {
 	std::cout << "Bureaucrat Default Constructor called.\nName: " << this->getName() <<
 		"\nGrade:" << this->getGrade() << std::endl;
@@ -79,6 +80,19 @@ void Bureaucrat::gradeUp()
 	}
 }
 
+void Bureaucrat::signForm(Form f)
+{
+	try
+	{
+		f.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->getName() << " couldn't sign " << f.getName() << " because " <<  e.what() << '\n';
+	}
+	
+}
+
 char const *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("The grade is too high");
@@ -89,7 +103,7 @@ char const *Bureaucrat::GradeTooLowException::what() const throw()
 	return ("The grade is too low");
 }
 
-std::ostream &operator<<(std::ostream &str, Bureaucrat const &bureaucrat)
+std::ostream	&operator<<(std::ostream &str, Bureaucrat const &bureaucrat)
 {
 	return (str << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".");
 }

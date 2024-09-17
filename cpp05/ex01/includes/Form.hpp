@@ -13,7 +13,8 @@
 #pragma once
 
 #include <iostream>
-class Bureaucrat;
+
+class	Bureaucrat;
 
 class Form
 {
@@ -34,7 +35,7 @@ class Form
 	int const &getSignGrade(void) const;
 	int const &getExecGrade(void) const;
 	bool getIsSigned(void);
-	
+
 	void beSigned(Bureaucrat bureaucrat);
 
 	class GradeTooHighException : public std::exception

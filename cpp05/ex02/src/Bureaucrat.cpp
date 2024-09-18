@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("defaultBureaucrat"), _grade(150)
 {
@@ -80,7 +80,7 @@ void Bureaucrat::gradeUp()
 	}
 }
 
-void Bureaucrat::signForm(Form f)
+void Bureaucrat::signForm(AForm f)
 {
 	try
 	{

@@ -24,6 +24,8 @@ SOURCES := main.cpp \
 			Bureaucrat.cpp \
 			AForm.cpp\
 			ShrubberyCreationForm.cpp\
+			RobotomyRequestForm.cpp\
+			PresidentialPardonForm.cpp\
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))
 

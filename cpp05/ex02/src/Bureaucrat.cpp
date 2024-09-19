@@ -79,7 +79,7 @@ void Bureaucrat::gradeUp()
 	}
 }
 
-void Bureaucrat::signForm(AForm f)
+void Bureaucrat::signForm(AForm &f)
 {
 	try
 	{

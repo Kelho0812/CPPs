@@ -12,15 +12,21 @@
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
 int	main(void)
 {
-	ShrubberyCreationForm f("f");
-	std::cout << f.getExecGrade();
-	Bureaucrat b ("toni", 150);
+	RobotomyRequestForm f("abilio");
+	PresidentialPardonForm f2("antonio");
+	ShrubberyCreationForm f3("casa");
+	Bureaucrat b ("toni", 1);
+	Bureaucrat c ("ze", 1);
 	try
 	{
-		f.beSigned(b);
+		f.beSigned(c);
+		f2.beSigned(b);
+		f3.beSigned(b);
 	}
 	catch(const std::exception& e)
 	{
@@ -29,6 +35,8 @@ int	main(void)
 	try
 	{
 		f.execute(b);
+		f2.execute(b);
+		f3.execute(b);
 	}
 	catch(const std::exception& e)
 	{

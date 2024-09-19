@@ -16,7 +16,7 @@
 #include <iostream>
 #include <fstream>  
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(target,	145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(target,	72, 137)
 {
 }
 
@@ -32,7 +32,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	}
 	else if (executor.getGrade() > this->getExecGrade())
 	{
-		std::cout << "NOT ENOUGH BITCH";
+		throw(Bureaucrat::GradeTooLowException());
 	}
 	else
 	{
@@ -41,16 +41,16 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 			for (int i = 0; i < 3; i++)
 			{
 			outfile <<
-				"   &&" << std::endl <<
-				"  &&&&&" << std::endl <<
-				"&&&&|&&&&" << std::endl <<
-				"&&&&|&&&&" << std::endl <<
-				"&&&&|&&&&" << std::endl <<
-				"&&&&|&&&&" << std::endl <<
-				" &&&|&&&" << std::endl <<
-				"   { }" << std::endl <<
-				"   { }" << std::endl <<
-				"   { }" << std::endl <<
+				"     &" << std::endl <<
+				"   &&&&&" << std::endl <<
+				"  &&&|&&&" << std::endl <<
+				" &&&&|&&&&" << std::endl <<
+				"&&&&&|&&&&&" << std::endl <<
+				"&&&&&|&&&&&" << std::endl <<
+				"  &&&|&&&" << std::endl <<
+				"    { }" << std::endl <<
+				"    { }" << std::endl <<
+				"    { }" << std::endl <<
 				std::endl;
 		}
 		outfile.close();

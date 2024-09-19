@@ -22,7 +22,8 @@ ODIR := obj
 # Source files
 SOURCES := main.cpp \
 			Bureaucrat.cpp \
-			Form.cpp\
+			AForm.cpp\
+			ShrubberyCreationForm.cpp\
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))
 

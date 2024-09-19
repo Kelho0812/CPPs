@@ -14,9 +14,11 @@
 
 #include "./AForm.hpp"
 
-class ShrubberyCreationForm: AForm
+class ShrubberyCreationForm : public AForm
 {
-	ShrubberyCreationForm(const std::string &name, int signGrade, int execGrade) : AForm(name, signGrade, execGrade) {}
+  public:
+	ShrubberyCreationForm(const std::string &name);
+	virtual ~ShrubberyCreationForm();
 
-
+	void execute(Bureaucrat const &executor) const;
 };

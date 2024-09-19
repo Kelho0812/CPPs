@@ -16,8 +16,6 @@
 AForm::AForm(void) : _name("defaultForm"), _signGrade(150), _execGrade(150), _isSigned(false)
 {
 	std::cout << "AForm Default Constructor called.\nName: " << this->getName() 
-	<< "\nSign Grade:" << this->getSignGrade() 
-	<< "\nExec Grade" << this->getExecGrade() 
 	<< std::endl;
 }
 
@@ -33,8 +31,7 @@ _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 		throw(GradeTooLowException());
 	}
 	std::cout << "AForm Custom Constructor called.\nName: " << this->getName() 
-	<< "\nSign Grade: " << this->getSignGrade() 
-	<< "\nExec Grade: " << this->getExecGrade() 
+
 	<< std::endl;
 }
 
@@ -69,9 +66,8 @@ int const &AForm::getExecGrade(void) const
 {
 	return this->_execGrade;
 }
-bool AForm::getIsSigned(void)
-{
-	return this->_isSigned;
+const bool &AForm::getIsSigned(void) const { 
+	return _isSigned;
 }
 
 void AForm::beSigned(Bureaucrat bureaucrat)
@@ -95,4 +91,9 @@ char const *AForm::GradeTooHighException::what() const throw()
 char const *AForm::GradeTooLowException::what() const throw()
 {
 	return ("The grade is too low");
+}
+
+char const *AForm::NotSignedException::what() const throw()
+{
+	return ("The form is not signed");
 }

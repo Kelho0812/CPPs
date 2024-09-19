@@ -11,11 +11,28 @@
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/Form.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 
 int	main(void)
 {
-	Form f("f", 1, 1);
-	Bureaucrat b;
-	b.signForm(f);
+	ShrubberyCreationForm f("f");
+	std::cout << f.getExecGrade();
+	Bureaucrat b ("toni", 150);
+	try
+	{
+		f.beSigned(b);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		f.execute(b);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }

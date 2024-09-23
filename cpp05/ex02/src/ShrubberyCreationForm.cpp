@@ -27,13 +27,9 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (getIsSigned() != true)
-	{
 		throw(ShrubberyCreationForm::NotSignedException());
-	}
 	else if (executor.getGrade() > this->getExecGrade())
-	{
 		throw(Bureaucrat::GradeTooLowException());
-	}
 	else
 	{
 		std::ofstream outfile ((this->getName() + "_shrubbery").c_str());
@@ -56,4 +52,14 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		outfile.close();
 	}
 	
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : AForm(copy)
+{
+	*this = copy;
+}
+const ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &copy)
+{
+	(void)copy;
+	return *this;
 }

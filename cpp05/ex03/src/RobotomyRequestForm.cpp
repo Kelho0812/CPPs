@@ -25,25 +25,27 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (getIsSigned() != true)
-	{
 		throw(AForm::NotSignedException());
-	}
 	else if (executor.getGrade() > this->getExecGrade())
-	{
 		throw(Bureaucrat::GradeTooLowException());
-	}
 	else
 	{
 		std::cout << "** DRILLINGZZZ **" << std::endl;
 		srand(time(0));
 		int num = rand() % 2;
 		if (num == 0)
-		{
 			std::cout << getName() << " was robotomized." << std::endl;
-		}
 		else
-		{
 			std::cout << "Robotomy failed." << std::endl;
-		}
 	}
+}
+
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm(copy)
+{
+	*this = copy;
+}
+const RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &copy)
+{
+	(void)copy;
+	return *this;
 }

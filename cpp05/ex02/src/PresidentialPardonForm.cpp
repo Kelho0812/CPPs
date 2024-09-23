@@ -37,15 +37,19 @@ PresidentialPardonForm::~PresidentialPardonForm(){}
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (getIsSigned() != true)
-	{
 		throw(AForm::NotSignedException());
-	}
 	else if (executor.getGrade() > this->getExecGrade())
-	{
 		throw(Bureaucrat::GradeTooLowException());
-	}
 	else
-	{
 		std::cout << getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
-	}
+}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) : AForm(copy)
+{
+	*this = copy;
+}
+const PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &copy)
+{
+	(void)copy;
+	return *this;
 }

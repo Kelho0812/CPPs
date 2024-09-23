@@ -18,9 +18,8 @@ Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 		"\nGrade:" << this->getGrade() << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string const &name, int grade)
+Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name), _grade(grade)
 {
-	this->_name = name;
 	if (grade < 1)
 	{
 		throw(Bureaucrat::GradeTooHighException());
@@ -34,7 +33,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade)
 		"\nGrade:" << this->getGrade() << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &copy)
+Bureaucrat::Bureaucrat(Bureaucrat const &copy): _name(copy._name), _grade(copy._grade)
 {
 	*this = copy;
 }
@@ -42,7 +41,6 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy)
 const Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 {
 	if (this != &copy) {
-		this->_name = copy._name;
 		this->_grade = copy._grade;
 	}
 	return *this;
@@ -69,6 +67,8 @@ void Bureaucrat::gradeDown()
 	{
 		throw(Bureaucrat::GradeTooLowException());
 	}
+	_grade++;
+	std::cout << "Grade increased by 1 to " << this->getGrade() << std::endl;
 }
 
 void Bureaucrat::gradeUp()
@@ -77,6 +77,8 @@ void Bureaucrat::gradeUp()
 	{
 		throw(Bureaucrat::GradeTooHighException());
 	}
+	_grade--;
+	std::cout << "Grade decreased by 1 to " << this->getGrade() << std::endl;
 }
 
 char const *Bureaucrat::GradeTooHighException::what() const throw()

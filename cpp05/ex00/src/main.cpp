@@ -30,11 +30,21 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 	try
 	{
 		Bureaucrat toni("toni", 1);
-		std::cout << toni << "\n";
+		toni.gradeUp();
+		
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat toni("toni", 150);
+		toni.gradeUp();
+		
 	}
 	catch (const std::exception &e)
 	{

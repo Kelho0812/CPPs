@@ -20,13 +20,13 @@ int	main(void)
 	RobotomyRequestForm f("abilio");
 	PresidentialPardonForm f2("antonio");
 	ShrubberyCreationForm f3("casa");
-	Bureaucrat b("toni", 1);
-	Bureaucrat c("ze", 1);
+	Bureaucrat a("toni", 1);
+	Bureaucrat b("ze", 150);
 	try
 	{
-		f.beSigned(c);
-		f2.beSigned(b);
-		f3.beSigned(b);
+		a.signForm(f);
+		b.signForm(f2);
+		a.signForm(f3);
 	}
 	catch (const std::exception &e)
 	{
@@ -34,9 +34,9 @@ int	main(void)
 	}
 	try
 	{
-		f.execute(b);
-		f2.execute(b);
-		f3.execute(b);
+		a.executeForm(f);
+		a.executeForm(f2);
+		b.executeForm(f3);
 	}
 	catch (const std::exception &e)
 	{

@@ -20,5 +20,5 @@ class ScalarConverter
 	ScalarConverter(ScalarConverter const &copy);
 	ScalarConverter const &operator=(ScalarConverter const &copy);
   public:
-	static void convert(std::string literal); 
+	static void convert(std::string literal);
 };

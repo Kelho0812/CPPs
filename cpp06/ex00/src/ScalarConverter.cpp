@@ -12,6 +12,11 @@
 
 #include "../includes/ScalarConverter.hpp"
 
+static void	parseLiteral(const std::string &literal)
+{
+	std::cout << "Parsing literal: " << literal << std::endl;
+}
+
 ScalarConverter::ScalarConverter(void)
 {
 	std::cout << "ScalarConverter Default Constructor called.";
@@ -26,9 +31,11 @@ ScalarConverter::ScalarConverter(ScalarConverter const &copy)
 }
 const ScalarConverter &ScalarConverter::operator=(ScalarConverter const &copy)
 {
-	if(this != &copy)
-	{
-		
-	}
-	return *this;
+	(void)copy;
+	return (*this);
+}
+
+void ScalarConverter::convert(std::string literal)
+{
+	parseLiteral(literal);
 }

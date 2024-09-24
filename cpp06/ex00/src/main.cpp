@@ -10,3 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdexcept>
+
+int main(int argc, char const *argv[])
+{
+	if (argc > 2)
+		throw std::invalid_argument("Too many arguments.");
+	else if (argc < 2)
+		throw std::invalid_argument("Too few arguments.");
+	(void)argv;
+	return 0;
+}

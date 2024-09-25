@@ -10,7 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
+#include <stdexcept>
+#include <string>
+#include <limits>
+#include <cstdlib>
+#include "./ParserUtils.hpp"
 
 class ScalarConverter
 {
@@ -18,7 +25,7 @@ class ScalarConverter
 	ScalarConverter(void);
 	~ScalarConverter(void);
 	ScalarConverter(ScalarConverter const &copy);
-	ScalarConverter const &operator=(ScalarConverter const &copy);
+	ScalarConverter const &operator=(ScalarConverter const &copy);	
   public:
 	static void convert(std::string literal);
 };

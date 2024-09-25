@@ -9,15 +9,19 @@
 /*   Updated: 2024/09/24 14:30:46 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../includes/ScalarConverter.hpp"
 
-#include <stdexcept>
-
-int main(int argc, char const *argv[])
+int	main(int argc, char const *argv[])
 {
-	if (argc > 2)
-		throw std::invalid_argument("Too many arguments.");
-	else if (argc < 2)
-		throw std::invalid_argument("Too few arguments.");
-	(void)argv;
-	return 0;
+	try
+	{
+		checkArgNum(argc);
+		ScalarConverter::convert(argv[1]);
+	}
+	catch (const std::invalid_argument &e)
+	{
+		std::cerr << "Error: " << e.what() << std::endl;
+		return (1);
+	}
+	return (0);
 }

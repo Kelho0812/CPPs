@@ -32,11 +32,18 @@ const ScalarConverter &ScalarConverter::operator=(ScalarConverter const &copy)
 
 void ScalarConverter::convert(std::string literal)
 {
-	std::string cleanStr;
-	int literalSize = literal.size();
-	parseLiteral(literal, literalSize);
-	cleanStr = cleanString(literal, literalSize);
-	if (isPseudo(cleanStr))
-		printPseudo(cleanStr);
-	
+	LiteralType	type;
+	int			literalSize;
+
+	literalSize = literal.size();
+	type = parseLiteral(literal, literalSize);
+	switch (type)
+	{
+	case PSEUDO:
+		printPseudo(literal);
+		break ;
+	default:
+		throw std::invalid_argument("Invalid Literal.");
+		break ;
+	}
 }

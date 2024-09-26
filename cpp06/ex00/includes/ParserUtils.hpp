@@ -12,28 +12,40 @@
 
 #pragma once
 
+#include <climits>
+#include <cstdlib>
 #include <iostream>
 #include <stdexcept>
 #include <string>
-#include <limits>
-#include <cstdlib>
 
-void checkArgNum (int argc);
+enum		LiteralType
+{
+	CHAR,
+	INT,
+	FLOAT,
+	DOUBLE,
+	PSEUDO
+};
 
-bool	negativeCheck(const std::string &literal);
+//Checkerz
+void		checkArgNum(int argc);
 
-bool	isChar(const std::string &literal, int literalSize);
+bool		negativeCheck(const std::string &literal);
 
-bool	isInt(const std::string &literal, int literalSize);
+bool		isChar(const std::string &literal, int literalSize);
 
-bool	isFloat(const std::string &literal, int literalSize);
+bool		isInt(const std::string &literal, int literalSize);
 
-bool	isDouble(const std::string &literal, int literalSize);
+bool		isFloat(const std::string &literal, int literalSize);
 
-bool	isPseudo(const std::string &literal);
+bool		isDouble(const std::string &literal, int literalSize);
 
-void	parseLiteral(const std::string &literal, int literalSize);
+bool		isPseudo(const std::string &literal);
+
+LiteralType	parseLiteral(const std::string &literal, int literalSize);
 
 std::string cleanString(const std::string &literal, int literalSize);
 
-void printPseudo(std::string cleanStr);
+void		printPseudo(std::string cleanStr);
+
+void		printOthers(std::string cleanStr);

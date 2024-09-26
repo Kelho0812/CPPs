@@ -34,13 +34,22 @@ void ScalarConverter::convert(std::string literal)
 {
 	LiteralType	type;
 	int			literalSize;
+	long double	tempDouble;
 
 	literalSize = literal.size();
 	type = parseLiteral(literal, literalSize);
+	tempDouble = std::strtold(literal.c_str(), NULL);
 	switch (type)
 	{
 	case PSEUDO:
 		printPseudo(literal);
+		break ;
+	case CHAR:
+		tempDouble = static_cast<long double>(literal[0]);
+		printConvertedValues(tempDouble);
+		break ;
+	case REGULAR:
+		printConvertedValues(tempDouble);
 		break ;
 	default:
 		throw std::invalid_argument("Invalid Literal.");

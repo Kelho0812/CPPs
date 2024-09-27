@@ -37,5 +37,7 @@ int main(void)
 	data = Serializer::deserialize(raw);
 	std::cout << "Deserialized data: " << data->name << " " << data->age << std::endl;
 
+	delete data;
+
 	return 0;
 }

@@ -1,21 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorteixe  <jorteixe@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 09:20:58 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/09/27 09:20:58 by jorteixe         ###   ########.fr       */
+/*   Created: 2024/09/27 09:32:39 by jorteixe          #+#    #+#             */
+/*   Updated: 2024/09/27 09:32:39 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/utils.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "Base.hpp"
+#include "C.hpp"
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
-int main(void)
+Base	*generate(void)
 {
 	Base *bp;
-	bp = generate();
-	delete bp;
-	return 0;
+	srand(time(0));
+	int num = rand() % 3;
+	switch (num)
+	{
+	case 0:
+		bp = new A;
+		break ;
+
+	case 1:
+		bp = new B;
+		break ;
+
+	case 2:
+		bp = new C;
+		break ;
+	default:
+		throw std::runtime_error("Unexpected case in generate()");
+		break ;
+	}
+	return (bp);
 }

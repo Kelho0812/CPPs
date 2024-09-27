@@ -12,10 +12,13 @@
 
 #include "../includes/utils.hpp"
 
-int main(void)
+int	main(void)
 {
 	Base *bp;
 	bp = generate();
+	identify(bp);
+	identify(*bp);
+
 	delete bp;
-	return 0;
+	return (0);
 }

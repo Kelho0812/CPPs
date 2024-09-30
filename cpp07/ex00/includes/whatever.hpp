@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorteixe  <jorteixe@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 09:13:03 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/09/30 09:30:20 by jorteixe         ###   ########.fr       */
+/*   Updated: 2024/09/30 09:13:03 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/whatever.hpp"
+#pragma once
 
-int	main(void)
+#include <iostream>
+
+template <class T> T max(T a, T b)
 {
-	int a = 2;
-	int b = 3;
-	::swap(a, b);
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min(a, b) << std::endl;
-	std::cout << "max( a, b ) = " << ::max(a, b) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
-	std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
-	return (0);
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+template <class T> T min(T a, T b)
+{
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+template <class T> void swap(T &a, T &b)
+{
+	T c;
+	c = a;
+	a = b;
+	b = c;
 }

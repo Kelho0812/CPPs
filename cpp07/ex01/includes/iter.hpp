@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorteixe  <jorteixe@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,26 +14,16 @@
 
 #include <iostream>
 
-template <class T> T max(T a, T b)
+template <typename T> void print(const T &value)
 {
-	if (a > b)
-		return (a);
-	else
-		return (b);
+	std::cout << value << std::endl;
 }
 
-template <class T> T min(T a, T b)
+template <typename T> void iter(T *array, int array_length,
+	void (*func)(const T &))
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
-}
-
-template <class T> void swap(T &a, T &b)
-{
-	T c;
-	c = a;
-	a = b;
-	b = c;
+	for (int i = 0; i < array_length; ++i)
+	{
+		func(array[i]);
+	}
 }

@@ -18,6 +18,11 @@ int	main(void)
 	{
 		Array<int> noSizeArray;
 		Array<int> sizedArray(5);
+		sizedArray[0] = 0;
+		sizedArray[1] = 1;
+		sizedArray[2] = 2;
+		sizedArray[3] = 3;
+		sizedArray[4] = 4;
 		for (size_t i = 0; i < sizedArray.size(); ++i)
 		{
 			std::cout << sizedArray[i] << std::endl;
@@ -26,6 +31,8 @@ int	main(void)
 		std::cout << sizedArray.size() << std::endl;
 		noSizeArray = sizedArray;
 		std::cout << noSizeArray.size() << std::endl;
+		Array<char> charArray(5);
+		std::cout << charArray.size() << std::endl;
 	}
 	catch (const std::exception &e)
 	{

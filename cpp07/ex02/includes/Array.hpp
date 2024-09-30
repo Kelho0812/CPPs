@@ -33,6 +33,7 @@ template <typename T> class Array
 	Array<T> &operator=(const Array<T> &copyArray);
 
 	size_t size() const;
+
 };
 
 #include "../src/Array.tpp"

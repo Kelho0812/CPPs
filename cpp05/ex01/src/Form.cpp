@@ -24,7 +24,7 @@ Form::Form(void) : _name("defaultForm"), _signGrade(150), _execGrade(150), _isSi
 Form::Form(std::string const &name, const int signGrade, const int execGrade):
 _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 {
-	if (signGrade < 0 || execGrade < 0)
+	if (signGrade < 1 || execGrade < 1)
 	{
 		throw(GradeTooHighException());
 	}

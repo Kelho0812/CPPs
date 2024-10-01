@@ -22,7 +22,7 @@ AForm::AForm(void) : _name("defaultForm"), _signGrade(150), _execGrade(150), _is
 AForm::AForm(std::string const &name, std::string const &target, const int signGrade, const int execGrade):
 _name(name), _target(target), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 {
-	if (signGrade < 0 || execGrade < 0)
+	if (signGrade < 1 || execGrade < 1)
 	{
 		throw(GradeTooHighException());
 	}

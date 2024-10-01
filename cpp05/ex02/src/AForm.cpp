@@ -19,8 +19,8 @@ AForm::AForm(void) : _name("defaultForm"), _signGrade(150), _execGrade(150), _is
 	<< std::endl;
 }
 
-AForm::AForm(std::string const &name, const int signGrade, const int execGrade):
-_name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
+AForm::AForm(std::string const &name, std::string const &target, const int signGrade, const int execGrade):
+_name(name), _target(target), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 {
 	if (signGrade < 0 || execGrade < 0)
 	{
@@ -35,7 +35,7 @@ _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 	<< std::endl;
 }
 
-AForm::AForm(AForm const &copy) : _name(copy._name),_signGrade(copy._signGrade),_execGrade(copy._execGrade), _isSigned(copy._isSigned)
+AForm::AForm(AForm const &copy) : _name(copy._name),_target(copy._target),_signGrade(copy._signGrade),_execGrade(copy._execGrade), _isSigned(copy._isSigned)
 {
 	*this = copy;
 }
@@ -57,6 +57,11 @@ AForm::~AForm()
 std::string const &AForm::getName(void) const
 {
 	return this->_name;	
+}
+
+std::string const &AForm::getTarget(void) const
+{
+	return this->_target;	
 }
 int const &AForm::getSignGrade(void) const
 {

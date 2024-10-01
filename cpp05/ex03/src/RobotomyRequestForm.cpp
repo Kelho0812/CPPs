@@ -18,9 +18,9 @@
 #include <iostream> 
 #include <time.h> 
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyForm",	72, 45){}
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyForm", "Target",	72, 45){}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyForm",	72, 45){}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyForm", target,	72, 45){}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
@@ -36,7 +36,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		srand(time(0));
 		int num = rand() % 2;
 		if (num == 0)
-			std::cout << getName() << " was robotomized." << std::endl;
+			std::cout << getTarget() << " was robotomized." << std::endl;
 		else
 			std::cout << "Robotomy failed." << std::endl;
 	}

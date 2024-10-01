@@ -16,10 +16,10 @@
 #include <iostream>
 #include <fstream>  
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyForm",	72, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyForm", "Target", 72, 137)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyForm",	72, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyForm", target,	72, 137)
 {
 }
 
@@ -35,7 +35,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw(Bureaucrat::GradeTooLowException());
 	else
 	{
-		std::ofstream outfile ((this->getName() + "_shrubbery").c_str());
+		std::ofstream outfile ((this->getTarget() + "_shrubbery").c_str());
 
 			for (int i = 0; i < 3; i++)
 			{

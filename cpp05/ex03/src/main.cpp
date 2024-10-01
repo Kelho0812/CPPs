@@ -21,7 +21,7 @@ int	main(void)
 	Intern someRandomIntern;
 	Bureaucrat someRandomBureaucrat("randoBureau", 1);
 	AForm* robotomy_form;
-	robotomy_form = someRandomIntern.makeForm("robotomy request", "R1");
+	robotomy_form = someRandomIntern.makeForm("robotomy request", "Abilio");
 	someRandomBureaucrat.signForm(*robotomy_form);
 	robotomy_form->execute(someRandomBureaucrat);
 	delete robotomy_form;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorteixe  <jorteixe@student.42.fr   >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 15:41:27 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/09/19 15:41:27 by jorteixe         ###   ########.fr       */
+/*   Created: 2024/09/19 16:04:32 by jorteixe          #+#    #+#             */
+/*   Updated: 2024/09/19 16:09:24 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include <iostream> 
 #include <time.h> 
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm",	72, 45){}
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm", "defaultTarget", 72, 45){}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm",	72, 45){}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm", target,	72, 45){}
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
 
@@ -31,7 +31,7 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	else if (executor.getGrade() > this->getExecGrade())
 		throw(Bureaucrat::GradeTooLowException());
 	else
-		std::cout << getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+		std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) : AForm(copy)
@@ -43,4 +43,3 @@ const PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPard
 	(void)copy;
 	return *this;
 }
-

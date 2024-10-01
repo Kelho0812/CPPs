@@ -18,6 +18,7 @@ class PresidentialPardonForm : public AForm
 {
   private:
 	PresidentialPardonForm(void);
+
   public:
 	PresidentialPardonForm(const std::string &name);
 	virtual ~PresidentialPardonForm();

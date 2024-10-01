@@ -45,11 +45,11 @@ Base	*generate(void)
 
 void	identify(Base *bp)
 {
-	if (dynamic_cast<A *>(bp))
+	if (dynamic_cast<A *>(bp) != NULL)
 		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B *>(bp))
+	else if (dynamic_cast<B *>(bp) != NULL)
 		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C *>(bp))
+	else if (dynamic_cast<C *>(bp) != NULL)
 		std::cout << "C" << std::endl;
 	else
 		std::cout << "Unknown" << std::endl;

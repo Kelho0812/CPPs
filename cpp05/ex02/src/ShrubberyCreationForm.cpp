@@ -51,7 +51,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		}
 		outfile.close();
 	}
-	
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : AForm(copy)

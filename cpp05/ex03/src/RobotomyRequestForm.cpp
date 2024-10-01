@@ -18,7 +18,9 @@
 #include <iostream> 
 #include <time.h> 
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(target,	72, 45){}
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyForm",	72, 45){}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyForm",	72, 45){}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}
 

@@ -18,7 +18,9 @@
 #include <iostream> 
 #include <time.h> 
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm(target,	72, 45){}
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm",	72, 45){}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm",	72, 45){}
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
 
@@ -41,3 +43,4 @@ const PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPard
 	(void)copy;
 	return *this;
 }
+

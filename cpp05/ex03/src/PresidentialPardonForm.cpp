@@ -18,7 +18,9 @@
 #include <iostream> 
 #include <time.h> 
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm(target,	72, 45){}
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm", "defaultTarget", 72, 45){}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm", target,	72, 45){}
 
 PresidentialPardonForm::~PresidentialPardonForm(){}
 

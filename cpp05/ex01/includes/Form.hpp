@@ -41,11 +41,11 @@ class Form
 	class GradeTooHighException : public std::exception
 	{
 		public:
-		virtual char const *what(void) const throw();
+		char const *what(void) const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public:
-		virtual char const *what(void) const throw();
+		char const *what(void) const throw();
 	};
 };

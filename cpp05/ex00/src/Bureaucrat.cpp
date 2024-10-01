@@ -14,8 +14,7 @@
 
 Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
 {
-	std::cout << "Bureaucrat Default Constructor called.\nName: " << this->getName() <<
-		"\nGrade:" << this->getGrade() << std::endl;
+	std::cout << "Bureaucrat Default Constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name), _grade(grade)
@@ -29,8 +28,7 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade): _name(name), _grade(
 		throw(Bureaucrat::GradeTooLowException());
 	}
 	this->_grade = grade;
-	std::cout << "Bureaucrat Custom Constructor called.\nName: " << this->getName() <<
-		"\nGrade:" << this->getGrade() << std::endl;
+	std::cout << "Bureaucrat Custom Constructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy): _name(copy._name), _grade(copy._grade)
@@ -48,7 +46,7 @@ const Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat Default Destructor called.\nName: " << this->getName() << std::endl;
+	std::cout << "Bureaucrat Default Destructor called." << std::endl;
 }
 
 const std::string &Bureaucrat::getName() const

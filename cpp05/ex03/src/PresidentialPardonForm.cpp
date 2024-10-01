@@ -21,15 +21,18 @@
 PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm",
 	"defaultTarget", 25, 5)
 {
+	std::cout << "PresidentialForm Default Constructor called." << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm",
 	target, 25, 5)
 {
+	std::cout << "PresidentialForm Custom Constructor called." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
+	std::cout << "PresidentialForm Default Destructor called." << std::endl;
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const

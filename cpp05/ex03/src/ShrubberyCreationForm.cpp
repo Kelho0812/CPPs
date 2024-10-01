@@ -17,14 +17,18 @@
 #include <fstream>  
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyForm", "Target", 145, 137)
-{}
+{
+	std::cout << "ShrubberyForm Default Constructor called." << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyForm", target,	145, 137)
 {
+	std::cout << "ShrubberyForm Custom Constructor called." << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+	std::cout << "ShrubberyForm Custom Destructor called." << std::endl;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const

@@ -18,11 +18,20 @@
 #include <iostream> 
 #include <time.h> 
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyForm", "Target",	72, 45){}
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyForm", "Target",	72, 45)
+{
+	std::cout << "RobotomyForm Default Constructor called." << std::endl;
+}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyForm", target,	72, 45){}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyForm", target,	72, 45)
+{
+	std::cout << "RobotomyForm Custom Constructor called." << std::endl;
+}
 
-RobotomyRequestForm::~RobotomyRequestForm(){}
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+	std::cout << "RobotomyForm Default Destructor called." << std::endl;
+}
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {

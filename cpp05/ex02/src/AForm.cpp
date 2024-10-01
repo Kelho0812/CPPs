@@ -15,7 +15,7 @@
 
 AForm::AForm(void) : _name("defaultForm"), _signGrade(150), _execGrade(150), _isSigned(false)
 {
-	std::cout << "Form Default Constructor called."	<< std::endl;
+	std::cout << "AForm Default Constructor called."	<< std::endl;
 }
 
 AForm::AForm(std::string const &name, std::string const &target, const int signGrade, const int execGrade):
@@ -29,7 +29,7 @@ _name(name), _target(target), _signGrade(signGrade), _execGrade(execGrade), _isS
 	{
 		throw(GradeTooLowException());
 	}
-	std::cout << "Form Custom Constructor called."	<< std::endl;
+	std::cout << "AForm Custom Constructor called."	<< std::endl;
 }
 
 AForm::AForm(AForm const &copy) : _name(copy._name),_target(copy._target),_signGrade(copy._signGrade),_execGrade(copy._execGrade), _isSigned(copy._isSigned)

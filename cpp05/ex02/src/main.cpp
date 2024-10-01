@@ -21,7 +21,7 @@ int	main(void)
 	PresidentialPardonForm f2("antonio");
 	ShrubberyCreationForm f3("casa");
 	Bureaucrat a("toni", 1);
-	Bureaucrat b("ze", 1);
+	Bureaucrat b("ze", 150);
 	try
 	{
 		a.signForm(f);

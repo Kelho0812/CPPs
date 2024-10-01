@@ -56,3 +56,5 @@ class AForm
 		char const *what(void) const throw();
 	};
 };
+
+std::ostream &operator<<(std::ostream &str, AForm &form);

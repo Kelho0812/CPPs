@@ -15,10 +15,7 @@
 
 Form::Form(void) : _name("defaultForm"), _signGrade(150), _execGrade(150), _isSigned(false)
 {
-	std::cout << "Form Default Constructor called.\nName: " << this->getName() 
-	<< "\nSign Grade:" << this->getSignGrade() 
-	<< "\nExec Grade" << this->getExecGrade() 
-	<< std::endl;
+	std::cout << "Form Default Constructor called."	<< std::endl;
 }
 
 Form::Form(std::string const &name, const int signGrade, const int execGrade):
@@ -32,10 +29,7 @@ _name(name), _signGrade(signGrade), _execGrade(execGrade), _isSigned(false)
 	{
 		throw(GradeTooLowException());
 	}
-	std::cout << "Form Custom Constructor called.\nName: " << this->getName() 
-	<< "\nSign Grade: " << this->getSignGrade() 
-	<< "\nExec Grade: " << this->getExecGrade() 
-	<< std::endl;
+	std::cout << "Form Custom Constructor called."	<< std::endl;
 }
 
 Form::Form(Form const &copy) : _name(copy._name),_signGrade(copy._signGrade),_execGrade(copy._execGrade), _isSigned(copy._isSigned)
@@ -53,7 +47,7 @@ const Form &Form::operator=(const Form &copy)
 
 Form::~Form()
 {
-	std::cout << "Form Default Destructor called.\nName: " << this->getName() << std::endl;
+	std::cout << "Form Default Destructor called." << std::endl;
 }
 
 

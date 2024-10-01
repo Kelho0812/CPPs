@@ -22,9 +22,7 @@ ODIR := obj
 # Source files
 SOURCES := main.cpp \
 			Base.cpp \
-			A.cpp \
-			B.cpp \
-			C.cpp \
+
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))
 

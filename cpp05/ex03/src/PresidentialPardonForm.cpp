@@ -13,16 +13,24 @@
 #include "../includes/AForm.hpp"
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include <cstdlib>
+#include <iostream>
 #include <stdlib.h>
-#include <cstdlib> 
-#include <iostream> 
-#include <time.h> 
+#include <time.h>
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm", "defaultTarget", 25, 5){}
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialForm",
+	"defaultTarget", 25, 5)
+{
+}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm", target,	25, 5){}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("PresidentialForm",
+	target, 25, 5)
+{
+}
 
-PresidentialPardonForm::~PresidentialPardonForm(){}
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+}
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
@@ -31,7 +39,10 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 	else if (executor.getGrade() > this->getExecGrade())
 		throw(Bureaucrat::GradeTooLowException());
 	else
+	{
+		std::cout<< executor.getName() << " executed " << this->getName() << std::endl;
 		std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	}
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) : AForm(copy)
@@ -41,5 +52,5 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &cop
 const PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &copy)
 {
 	(void)copy;
-	return *this;
+	return (*this);
 }

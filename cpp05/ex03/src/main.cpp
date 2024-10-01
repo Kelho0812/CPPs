@@ -23,6 +23,6 @@ int	main(void)
 	AForm* robotomy_form;
 	robotomy_form = someRandomIntern.makeForm("robotomy request", "Abilio");
 	someRandomBureaucrat.signForm(*robotomy_form);
-	robotomy_form->execute(someRandomBureaucrat);
+	someRandomBureaucrat.executeForm(*robotomy_form);
 	delete robotomy_form;
 }

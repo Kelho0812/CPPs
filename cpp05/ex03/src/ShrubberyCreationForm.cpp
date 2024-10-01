@@ -35,6 +35,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw(Bureaucrat::GradeTooLowException());
 	else
 	{
+		std::cout<< executor.getName() << " executed " << this->getName() << std::endl;
 		std::ofstream outfile ((this->getTarget() + "_shrubbery").c_str());
 
 			for (int i = 0; i < 3; i++)

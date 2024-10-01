@@ -32,6 +32,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw(Bureaucrat::GradeTooLowException());
 	else
 	{
+		std::cout<< executor.getName() << " executed " << this->getName() << std::endl;
 		std::cout << "** DRILLINGZZZ **" << std::endl;
 		srand(time(0));
 		int num = rand() % 2;

@@ -18,4 +18,8 @@ int	main(void)
 	Form f("f", 1, 1);
 	Bureaucrat b;
 	b.signForm(f);
+
+	Form f1("f1", 1, 1);
+	Bureaucrat b1("Toni", 1);
+	b1.signForm(f1);
 }

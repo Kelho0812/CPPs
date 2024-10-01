@@ -17,12 +17,12 @@
 
 Intern::Intern(void)
 {
-	std::cout << "Intern Default Constructor called.";
+	std::cout << "Intern Default Constructor called." << std::endl;
 }
 
 Intern::~Intern(void)
 {
-	std::cout << "Intern Default Destructor called.";
+	std::cout << "Intern Default Destructor called." << std::endl;
 }
 
 Intern::Intern(Intern const &copy)

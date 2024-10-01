@@ -75,7 +75,7 @@ const bool &AForm::getIsSigned(void) const {
 	return _isSigned;
 }
 
-void AForm::beSigned(Bureaucrat bureaucrat)
+void AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getSignGrade())
 	{
@@ -84,6 +84,7 @@ void AForm::beSigned(Bureaucrat bureaucrat)
 	else
 	{
 		this->_isSigned = true;
+		std::cout<< bureaucrat.getName() << " signed " << this->getName() << std::endl;
 	}
 }
 

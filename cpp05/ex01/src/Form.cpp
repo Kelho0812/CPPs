@@ -74,7 +74,7 @@ bool Form::getIsSigned(void)
 	return this->_isSigned;
 }
 
-void Form::beSigned(Bureaucrat bureaucrat)
+void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->getSignGrade())
 	{
@@ -83,6 +83,7 @@ void Form::beSigned(Bureaucrat bureaucrat)
 	else
 	{
 		this->_isSigned = true;
+		std::cout<< bureaucrat.getName() << " signed " << this->getName() << std::endl;
 	}
 }
 

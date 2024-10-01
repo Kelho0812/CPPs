@@ -69,7 +69,7 @@ void Bureaucrat::gradeDown()
 		throw(Bureaucrat::GradeTooLowException());
 	}
 	_grade++;
-	std::cout << "Grade increased by 1 to " << this->getGrade() << std::endl;
+	std::cout << "Grade decreased by 1 to " << this->getGrade() << std::endl;
 }
 
 void Bureaucrat::gradeUp()
@@ -79,7 +79,7 @@ void Bureaucrat::gradeUp()
 		throw(Bureaucrat::GradeTooHighException());
 	}
 	_grade--;
-	std::cout << "Grade decreased by 1 to " << this->getGrade() << std::endl;
+	std::cout << "Grade increased by 1 to " << this->getGrade() << std::endl;
 }
 
 char const *Bureaucrat::GradeTooHighException::what() const throw()

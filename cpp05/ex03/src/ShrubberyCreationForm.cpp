@@ -16,10 +16,10 @@
 #include <iostream>
 #include <fstream>  
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyForm", "Target", 72, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyForm", "Target", 145, 137)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyForm", target,	72, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("ShrubberyForm", target,	145, 137)
 {
 }
 

@@ -22,6 +22,7 @@ ODIR := obj
 # Source files
 SOURCES := main.cpp \
 			Span.cpp \
+			utils.cpp\
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))
 

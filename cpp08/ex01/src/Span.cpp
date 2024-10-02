@@ -17,7 +17,7 @@ Span::Span()
 	std::cout << "Span Default Constructor called." << std::endl;
 }
 
-Span::Span(unsigned int N) : _maxSpan(N)
+Span::Span(unsigned int N) : _maxSize(N)
 {
 	std::cout << "Span Custom Constructor called." << std::endl;
 };
@@ -38,24 +38,75 @@ const Span &Span::operator=(Span const &copy)
 	return (*this);
 }
 
-unsigned int Span::getMaxSpan()
+unsigned int Span::getMaxSize()
 {
-	return (_maxSpan);
+	return (_maxSize);
 }
 
 void Span::addNumber(int Number)
 {
 	try
 	{
-		if (_vectorSpan.size() == _maxSpan)
+		if (_vectorSpan.size() == _maxSize)
 		{
-			throw std::length_error("Span is full, can't add more numbers.");
+			throw std::length_error("Vector is full, can't add more numbers.");
 		}
 		_vectorSpan.push_back(Number);
-		std::cout << Number << " was added to the span" << std::endl;
+		std::cout << Number << " was added to the vector." << std::endl;
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+}
+
+unsigned int Span::longestSpan()
+{
+	if (_vectorSpan.size() <= 1)
+	{
+		throw std::length_error("Max span cannot be found because vector has less than 2 numbers stored.");
+	}
+	std::sort(_vectorSpan.begin(), _vectorSpan.end());
+	_maxSpan = (_vectorSpan.back() - _vectorSpan.front());
+	return (_maxSpan);
+}
+
+unsigned int Span::shortestSpan()
+{
+	if (_vectorSpan.size() <= 1)
+	{
+		throw std::length_error("Min span cannot be found because vector has less than 2 numbers stored.");
+	}
+	std::sort(_vectorSpan.begin(), _vectorSpan.end());
+	_minSpan = _vectorSpan[1] - _vectorSpan[0];
+	for (size_t i = 0; i < _vectorSpan.size() - 1; ++i)
+	{
+		if (static_cast<int>(_minSpan) > (_vectorSpan[i + 1] - _vectorSpan[i]))
+		{
+			_minSpan = _vectorSpan[i + 1] - _vectorSpan[i];
+		}
+	}
+	return (_minSpan);
+}
+
+void Span::fillVector(std::vector<int>::iterator begin,
+	std::vector<int>::iterator end)
+{
+	if (std::distance(begin, end) > _maxSize)
+	{
+		throw std::length_error("Trying to fill the vector with too many numbers.");
+	}
+	else
+	{
+		_vectorSpan.insert(_vectorSpan.end(), begin, end);
+	}
+}
+
+void Span::printVector()
+{
+	for (std::vector<int>::const_iterator it = _vectorSpan.begin(); it != _vectorSpan.end(); ++it)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
 }

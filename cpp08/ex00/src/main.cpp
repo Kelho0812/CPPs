@@ -21,8 +21,17 @@ int	main(void)
 		vec.push_back(20);
 		vec.push_back(30);
 		vec.push_back(40);
+
+		std::list<int> lst;
+		lst.push_back(10);
+		lst.push_back(20);
+		lst.push_back(30);
+		lst.push_back(40);
+
 		std::vector<int>::iterator it = easyfind(vec, 30);
 		std::cout << "Found: " << *it << std::endl;
+		std::list<int>::iterator itlst = easyfind(lst, 30);
+		std::cout << "Found: " << *itlst << std::endl;
 		it = easyfind(vec, 50);
 		std::cout << "Found: " << *it << std::endl;
 	}

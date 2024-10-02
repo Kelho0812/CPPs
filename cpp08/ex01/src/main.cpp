@@ -10,3 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/Span.hpp"
+
+int main(void)
+{
+	Span span(2);
+	span.addNumber(1);
+	span.addNumber(1);
+	span.addNumber(1);
+	return 0;
+}

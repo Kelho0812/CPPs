@@ -12,7 +12,8 @@
 
 #include "../includes/easyfind.hpp"
 
-template <typename T> typename T::iterator easyfind(T &tParam, int intParam)
+template <typename T>
+typename T::iterator easyfind(T &tParam, int intParam)
 {
 	typename T::iterator first = tParam.begin();
 	typename T::iterator last = tParam.end();

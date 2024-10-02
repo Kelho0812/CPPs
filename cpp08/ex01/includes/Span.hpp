@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Class.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe  <jorteixe@student.42.fr   >      +#+  +:+       +#+        */
+/*   By: jorteixe  <jorteixe@student.42porto.>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 18:25:55 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/10/01 18:25:55 by jorteixe         ###   ########.fr       */
+/*   Created: 2024/10/02 09:41:35 by jorteixe          #+#    #+#             */
+/*   Updated: 2024/10/02 09:41:35 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// easyfind.hpp
 #pragma once
 
-#include <algorithm>
-#include <iterator>
-#include <vector>
-#include <list>
 #include <iostream>
+#include <vector>
 #include <stdexcept>
 
-template <typename T>
-typename T::iterator easyfind(T &tParam, int intParam);
+class Span
+{
+  private:
+	Span();
+	unsigned int _maxSpan;
+	std::vector<int> _vectorSpan;
 
-#include "../src/easyfind.tpp"
+  public:
+	~Span();
+	Span(unsigned int N);
+	Span(const Span &copySpan);
+	Span const &operator=(Span const &copySpan);
+
+	unsigned int getMaxSpan();
+
+	void addNumber(int Number);
+};

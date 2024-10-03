@@ -12,7 +12,9 @@
 
 #pragma once
 
+#include <cctype>
 #include <climits>
+#include <clocale>
 #include <cmath>
 #include <cstdlib>
 #include <iomanip>
@@ -24,8 +26,25 @@
 enum		LiteralType
 {
 	CHAR,
+	INT,
+	DOUBLE,
+	FLOAT,
 	REGULAR,
 	PSEUDO
+};
+
+struct		OverflowChecks
+{
+	bool	intOverflow;
+	bool	doubleOverflow;
+	bool	floatOverflow;
+	bool	charPrintable;
+	bool	charImpossible;
+
+	OverflowChecks() : intOverflow(false), doubleOverflow(false),
+		floatOverflow(false), charPrintable(false), charImpossible(false)
+	{
+	}
 };
 
 // Checkerz
@@ -48,17 +67,24 @@ bool		isPseudo(const std::string &literal);
 
 LiteralType	parseLiteral(const std::string &literal, int literalSize);
 
+// Convertz
+
+void		convertInt(std::string literal, OverflowChecks *data);
+void		convertChar(char c);
+void		convertDouble(std::string literal, OverflowChecks *data);
+void		convertFloat(std::string literal, OverflowChecks *data);
+void		checkOverflow(long double tempDouble, OverflowChecks *data);
 
 // Printerz
 
 void		printPseudo(std::string cleanStr);
 
-void		printChar(const long double &tempDouble);
+void		printChar(char c);
 
-void		printInt(const long double &tempDouble);
+void		printInt(int i);
 
-void		printFloat(const long double &tempDouble);
+void		printFloat(float f);
 
-void		printDouble(const long double &tempDouble);
+void		printDouble(double d);
 
-void		printConvertedValues(const long double &tempDouble);
+void		printImpossible(void);

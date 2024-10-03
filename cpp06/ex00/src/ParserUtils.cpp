@@ -78,7 +78,7 @@ bool	isDouble(const std::string &literal, int literalSize)
 	i = isNegative;
 	if (literalSize < 3)
 	{
-		return false;
+		return (false);
 	}
 	while (i < literalSize - 1)
 	{
@@ -96,7 +96,7 @@ bool	isDouble(const std::string &literal, int literalSize)
 
 bool	isPseudo(const std::string &literal)
 {
-	if (literal == "nan" || literal == "+inf" || literal == "-inf")
+	if (literal == "nan" || literal == "+inf" || literal == "-inf" || literal == "nanf" || literal == "+inff" || literal == "-inff")
 	{
 		return (true);
 	}
@@ -110,15 +110,15 @@ LiteralType	parseLiteral(const std::string &literal, int literalSize)
 		throw std::invalid_argument("Invalid Literal.");
 	}
 	if (isChar(literal, literalSize))
-		return CHAR;
-	else if( isInt(literal, literalSize))
-		return REGULAR;
-	else if(isDouble(literal, literalSize))
-		return REGULAR;
-	else if(isFloat(literal, literalSize))
-		return REGULAR;
-	else if(isPseudo(literal))
-		return PSEUDO;
+		return (CHAR);
+	else if (isInt(literal, literalSize))
+		return (INT);
+	else if (isDouble(literal, literalSize))
+		return (DOUBLE);
+	else if (isFloat(literal, literalSize))
+		return (FLOAT);
+	else if (isPseudo(literal))
+		return (PSEUDO);
 	else
 	{
 		throw std::invalid_argument("Invalid Literal.");
@@ -145,75 +145,149 @@ std::string cleanString(const std::string &literal, int literalSize)
 	}
 }
 
-void printPseudo(std::string cleanStr)
+void	printPseudo(std::string literal)
 {
-	std::cout << "char: impossible" << std::endl;
-	std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << cleanStr << "f" << std::endl;
-	std::cout << "double: " << cleanStr << std::endl;
-}
 
-void	printChar(const long double &tempDouble)
-{
-	std::cout << "char: ";
-	if (tempDouble >= 32 && tempDouble <= 126)
-		std::cout << "'" << static_cast<char>(tempDouble) << "'" << std::endl;
-	else
-		std::cout << "Non displayable" << std::endl;
-}
-
-void	printInt(const long double &tempDouble)
-{
-	std::cout << "int: ";
-	if (tempDouble >= -std::numeric_limits<int>::max()
-		&& tempDouble <= std::numeric_limits<int>::max())
-		std::cout << static_cast<int>(tempDouble) << std::endl;
-	else
-		std::cout << "overflow" << std::endl;
-}
-void	printFloat(const long double &tempDouble)
-{
-	float	f;
-
-	std::cout << "float: ";
-	if (tempDouble >= -std::numeric_limits<float>::max()
-		&& tempDouble <= std::numeric_limits<float>::max())
+	if (literal == "nanf" || literal == "+inff" || literal == "-inff")
 	{
-		f = static_cast<float>(tempDouble);
-		if (f == std::floor(f) && f < 1e7 && f > -1e7)
-			std::cout << f << ".0f" << std::endl;
-		else
-		{
-			std::cout << f << "f" << std::endl;
-		}
+		float	f;
+
+		f = std::strtof(literal.c_str(), NULL);
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
+		printFloat(f);
+		printDouble(static_cast<double>(f));
+	}
+	else if(literal == "nan" || literal == "+inf" || literal == "-inf")
+	{
+		double	d;
+	
+		d = std::strtod(literal.c_str(), NULL);
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
+		printFloat(static_cast<float>(d));
+		printDouble(d);
+	}
+}
+
+void	printChar(char c, OverflowChecks *data)
+{
+	if (data->charPrintable == false)
+	{
+		std::cout << "char: Non displayable" << std::endl;
+	}
+	else if (data->charImpossible)
+	{
+		std::cout << "char: Impossible" << std::endl;
 	}
 	else
-		std::cout << "overflow" << std::endl;
+	{
+		std::cout << "char: " << static_cast<char>(c) << std::endl;
+	}
 }
-void	printDouble(const long double &tempDouble)
+
+void	printInt(int i)
+{
+	std::cout << "int: " << i << std::endl;
+
+}
+void	printFloat(float f)
+{
+	std::cout << "float: ";
+	if (f == std::floor(f) && f < 1e7 && f > -1e7)
+		std::cout << f << ".0f" << std::endl;
+	else
+	{
+		std::cout << f << "f" << std::endl;
+	}
+}
+void	printDouble(double d)
+{
+	std::cout << "double: ";
+	std::cout << std::setprecision(2) << d << std::endl;
+}
+
+void	convertDouble(std::string literal, OverflowChecks *data)
 {
 	double	d;
 
-	std::cout << "double: ";
-	if (tempDouble >= -std::numeric_limits<double>::max()
-		&& tempDouble <= std::numeric_limits<double>::max())
+	if (data->doubleOverflow == true)
 	{
-		d = static_cast<double>(tempDouble);
-		if (d == std::floor(d) && d < 1e7 && d > -1e7)
-			std::cout << d << ".0" << std::endl;
-		else
-		{
-			std::cout << d << std::endl;
-		}
+		printImpossible();
+		return ;
 	}
-	else
-		std::cout << "overflow" << std::endl;
+	
+	d = std::strtod(literal.c_str(), NULL);
+	printChar(static_cast<char>(d), data);
+	printInt(static_cast<int>(d));
+	printFloat(static_cast<float>(d));
+	printDouble(d);
 }
 
-void	printConvertedValues(const long double &tempDouble)
+void	convertFloat(std::string literal, OverflowChecks *data)
 {
-	printChar(tempDouble);
-	printInt(tempDouble);
-	printFloat(tempDouble);
-	printDouble(tempDouble);
+	float	f;
+
+	if (data->intOverflow == true)
+	{
+		printImpossible();
+		return ;
+	}
+	f = std::strtof(literal.c_str(), NULL);
+	printChar(static_cast<char>(f), data);
+	printInt(static_cast<int>(f));
+	printFloat(f);
+	printDouble(static_cast<double>(f));
+}
+
+
+void	convertInt(std::string literal, OverflowChecks *data)
+{
+	int	i;
+
+	if (data->intOverflow == true)
+	{
+		printImpossible();
+		return ;
+	}
+	i = atoi(literal.c_str());
+	printChar(static_cast<char>(i), data);
+	std::cout << "int: " << i << std::endl;
+	printFloat(static_cast<float>(i));
+	printDouble(static_cast<double>(i));
+}
+
+void	convertChar(char c)
+{
+	std::cout << "char: " << c << std::endl;
+	printInt(static_cast<int>(c));
+	printFloat(static_cast<float>(c));
+	printDouble(static_cast<double>(c));
+}
+
+void	checkOverflow(long double tempDouble, OverflowChecks *data)
+{
+	if ((tempDouble >= 32 && tempDouble <= 127))
+	{
+		data->charPrintable = true;
+	}
+	else
+	{
+		data->charPrintable = false;
+	}
+	data->charImpossible = (tempDouble < 0 || tempDouble > 255);
+	data->intOverflow = (tempDouble < std::numeric_limits<int>::min()
+			|| tempDouble > std::numeric_limits<int>::max());
+	data->floatOverflow = (tempDouble < -std::numeric_limits<float>::max()
+			|| tempDouble > std::numeric_limits<float>::max());
+	data->doubleOverflow = (tempDouble < -std::numeric_limits<double>::max()
+			|| tempDouble > std::numeric_limits<double>::max());
+}
+
+void	printImpossible(void)
+{
+	std::cout << "char: Impossible" << std::endl;
+	std::cout << "int: Impossible" << std::endl;
+	std::cout << "float: Impossible" << std::endl;
+	std::cout << "double: Impossible" << std::endl;
 }

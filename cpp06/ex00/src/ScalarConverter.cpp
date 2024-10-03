@@ -51,7 +51,7 @@ void ScalarConverter::convert(std::string literal)
 	case CHAR:
 	{
 		c = literal[0];
-		convertChar(c);
+		convertChar(c, data);
 		break ;
 	}
 	case INT:

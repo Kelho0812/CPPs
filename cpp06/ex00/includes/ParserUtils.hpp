@@ -70,7 +70,7 @@ LiteralType	parseLiteral(const std::string &literal, int literalSize);
 // Convertz
 
 void		convertInt(std::string literal, OverflowChecks *data);
-void		convertChar(char c);
+void		convertChar(char c, OverflowChecks *data);
 void		convertDouble(std::string literal, OverflowChecks *data);
 void		convertFloat(std::string literal, OverflowChecks *data);
 void		checkOverflow(long double tempDouble, OverflowChecks *data);
@@ -79,9 +79,9 @@ void		checkOverflow(long double tempDouble, OverflowChecks *data);
 
 void		printPseudo(std::string cleanStr);
 
-void		printChar(char c);
+void	printChar(char c, OverflowChecks *data);
 
-void		printInt(int i);
+void		printInt(int i, OverflowChecks *data);
 
 void		printFloat(float f);
 

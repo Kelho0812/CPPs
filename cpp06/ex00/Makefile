@@ -23,6 +23,8 @@ ODIR := obj
 SOURCES := main.cpp \
 			ScalarConverter.cpp \
 			ParserUtils.cpp \
+			printer.cpp \
+			converter.cpp
 # Object files
 OBJECTS := $(patsubst %.cpp,$(ODIR)/%.o,$(SOURCES))
 

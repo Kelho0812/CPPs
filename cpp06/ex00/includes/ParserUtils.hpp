@@ -79,7 +79,7 @@ void		checkOverflow(long double tempDouble, OverflowChecks *data);
 
 void		printPseudo(std::string cleanStr);
 
-void	printChar(char c, OverflowChecks *data);
+void		printChar(char c, OverflowChecks *data);
 
 void		printInt(int i, OverflowChecks *data);
 

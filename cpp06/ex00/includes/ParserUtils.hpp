@@ -77,13 +77,13 @@ void		checkOverflow(long double tempDouble, OverflowChecks *data);
 
 // Printerz
 
-void		printPseudo(std::string cleanStr);
+void		printPseudo(std::string literal, OverflowChecks *data);
 
 void		printChar(char c, OverflowChecks *data);
 
 void		printInt(int i, OverflowChecks *data);
 
-void		printFloat(float f);
+void		printFloat(float f, OverflowChecks *data);
 
 void		printDouble(double d);
 

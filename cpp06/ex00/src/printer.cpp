@@ -13,7 +13,7 @@
 #include "../includes/ParserUtils.hpp"
 #include <climits>
 
-void	printPseudo(std::string literal)
+void	printPseudo(std::string literal, OverflowChecks *data)
 {
 	float	f;
 	double	d;
@@ -23,7 +23,7 @@ void	printPseudo(std::string literal)
 		f = std::strtof(literal.c_str(), NULL);
 		std::cout << "char: Impossible" << std::endl;
 		std::cout << "int: Impossible" << std::endl;
-		printFloat(f);
+		printFloat(f, data);
 		printDouble(static_cast<double>(f));
 	}
 	else if (literal == "nan" || literal == "+inf" || literal == "-inf")
@@ -31,7 +31,7 @@ void	printPseudo(std::string literal)
 		d = std::strtod(literal.c_str(), NULL);
 		std::cout << "char: Impossible" << std::endl;
 		std::cout << "int: Impossible" << std::endl;
-		printFloat(static_cast<float>(d));
+		printFloat(static_cast<float>(d), data);
 		printDouble(d);
 	}
 }
@@ -63,10 +63,14 @@ void	printInt(int i, OverflowChecks *data)
 		std::cout << "int: " << i << std::endl;
 	}
 }
-void	printFloat(float f)
+void	printFloat(float f, OverflowChecks *data)
 {
 	std::cout << "float: ";
-	if (f == std::floor(f) && f < 1e7 && f > -1e7)
+	if (data->floatOverflow == true)
+	{
+		std::cout << "Impossible" << std::endl;
+	}
+	else if (f == std::floor(f) && f < 1e7 && f > -1e7)
 		std::cout << f << ".0f" << std::endl;
 	else
 	{

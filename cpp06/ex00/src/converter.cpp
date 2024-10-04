@@ -25,7 +25,7 @@ void	convertDouble(std::string literal, OverflowChecks *data)
 	d = std::strtod(literal.c_str(), NULL);
 	printChar(static_cast<char>(d), data);
 	printInt(static_cast<int>(d), data);
-	printFloat(static_cast<float>(d));
+	printFloat(static_cast<float>(d), data);
 	printDouble(d);
 }
 
@@ -33,7 +33,7 @@ void	convertFloat(std::string literal, OverflowChecks *data)
 {
 	float	f;
 
-	if (data->intOverflow == true)
+	if (data->floatOverflow == true)
 	{
 		printImpossible();
 		return ;
@@ -41,7 +41,7 @@ void	convertFloat(std::string literal, OverflowChecks *data)
 	f = std::strtof(literal.c_str(), NULL);
 	printChar(static_cast<char>(f), data);
 	printInt(static_cast<int>(f), data);
-	printFloat(f);
+	printFloat(f, data);
 	printDouble(static_cast<double>(f));
 }
 
@@ -57,7 +57,7 @@ void	convertInt(std::string literal, OverflowChecks *data)
 	i = atoi(literal.c_str());
 	printChar(static_cast<char>(i), data);
 	std::cout << "int: " << i << std::endl;
-	printFloat(static_cast<float>(i));
+	printFloat(static_cast<float>(i), data);
 	printDouble(static_cast<double>(i));
 }
 
@@ -65,6 +65,6 @@ void	convertChar(char c, OverflowChecks *data)
 {
 	std::cout << "char: " << c << std::endl;
 	printInt(static_cast<int>(c), data);
-	printFloat(static_cast<float>(c));
+	printFloat(static_cast<float>(c), data);
 	printDouble(static_cast<double>(c));
 }

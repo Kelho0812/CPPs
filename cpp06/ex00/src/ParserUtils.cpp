@@ -51,11 +51,18 @@ bool	isFloat(const std::string &literal, int literalSize)
 {
 	bool	isNegative;
 	int		i;
+	bool	foundDot;
 
 	isNegative = negativeCheck(literal);
+	foundDot = false;
 	i = isNegative;
 	while (i < literalSize - 1)
 	{
+		if (i != 0 && !foundDot && literal[i] == '.')
+		{
+			foundDot = true;
+			i++;
+		}
 		if (!isdigit(literal[i]))
 			return (false);
 		i++;
@@ -114,10 +121,10 @@ LiteralType	parseLiteral(const std::string &literal, int literalSize)
 		return (CHAR);
 	else if (isInt(literal, literalSize))
 		return (INT);
-	else if (isDouble(literal, literalSize))
-		return (DOUBLE);
 	else if (isFloat(literal, literalSize))
 		return (FLOAT);
+	else if (isDouble(literal, literalSize))
+		return (DOUBLE);
 	else if (isPseudo(literal))
 		return (PSEUDO);
 	else

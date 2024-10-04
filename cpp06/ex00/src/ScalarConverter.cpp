@@ -46,7 +46,7 @@ void ScalarConverter::convert(std::string literal)
 	switch (type)
 	{
 	case PSEUDO:
-		printPseudo(literal);
+		printPseudo(literal, data);
 		break ;
 	case CHAR:
 	{

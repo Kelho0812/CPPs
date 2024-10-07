@@ -104,6 +104,7 @@ void Span::fillVector(std::vector<int>::iterator begin,
 
 void Span::printVector()
 {
+	std::cout << "Printing Vector:" << std::endl;
 	for (std::vector<int>::const_iterator it = _vectorSpan.begin(); it != _vectorSpan.end(); ++it)
 	{
 		std::cout << *it << " ";

@@ -17,6 +17,7 @@ void	printPseudo(std::string literal, OverflowChecks *data)
 {
 	float	f;
 	double	d;
+	data->isPseudo = true;
 
 	if (literal == "nanf" || literal == "+inff" || literal == "-inff")
 	{
@@ -66,7 +67,7 @@ void	printInt(int i, OverflowChecks *data)
 void	printFloat(float f, OverflowChecks *data)
 {
 	std::cout << "float: ";
-	if (data->floatOverflow == true)
+	if (data->floatOverflow == true && data->isPseudo == false)
 	{
 		std::cout << "Impossible" << std::endl;
 	}

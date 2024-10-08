@@ -40,9 +40,10 @@ struct		OverflowChecks
 	bool	floatOverflow;
 	bool	charPrintable;
 	bool	charImpossible;
+	bool	isPseudo;
 
 	OverflowChecks() : intOverflow(false), doubleOverflow(false),
-		floatOverflow(false), charPrintable(false), charImpossible(false)
+		floatOverflow(false), charPrintable(false), charImpossible(false), isPseudo(false)
 	{
 	}
 };

@@ -67,7 +67,7 @@ bool	isFloat(const std::string &literal, int literalSize)
 			return (false);
 		i++;
 	}
-	if (literal[i] != 'f' || literal[1] == 'f')
+	if (literal[i] != 'f' || literal[1] != 'f')
 	{
 		return (false);
 	}

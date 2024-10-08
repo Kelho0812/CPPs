@@ -1,43 +1,56 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jorteixe  <jorteixe@student.42porto.>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 09:13:03 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/09/30 09:13:03 by jorteixe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/Array.hpp"
+#include <iostream>
 
-int	main(void)
+#define MAX_VAL 750
+
+int	main(int, char **)
 {
+	Array<int> numbers(MAX_VAL);
+	int *mirror = new int[MAX_VAL];
+	srand(time(NULL));
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		const int value = rand();
+		numbers[i] = value;
+		mirror[i] = value;
+	}
+	// SCOPE
+	{
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
+	}
+
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		if (mirror[i] != numbers[i])
+		{
+			std::cerr << "didn't save the same value!!" << std::endl;
+			return (1);
+		}
+		std::cout << "Number [" << i << "] -> " <<  numbers[i] << std::endl;
+		std::cout << "Mirror [" << i << "] -> " <<  mirror[i] << std::endl;
+	}
 	try
 	{
-		Array<int> noSizeArray;
-		Array<int> sizedArray(5);
-		sizedArray[0] = 0;
-		sizedArray[1] = 1;
-		sizedArray[2] = 2;
-		sizedArray[3] = 3;
-		sizedArray[4] = 4;
-		for (size_t i = 0; i < sizedArray.size(); ++i)
-		{
-			std::cout << sizedArray[i] << std::endl;
-		}
-		
-		std::cout << sizedArray.size() << std::endl;
-		noSizeArray = sizedArray;
-		std::cout << noSizeArray.size() << std::endl;
-		Array<char> charArray(5);
-		std::cout << charArray.size() << std::endl;
+		numbers[-2] = 0;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		numbers[MAX_VAL] = 0;
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
+	for (int i = 0; i < MAX_VAL; i++)
+	{
+		numbers[i] = rand();
+	}
+	delete[] mirror; //
 	return (0);
 }

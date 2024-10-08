@@ -13,6 +13,8 @@
 #pragma once
 
 #include <iostream>
+#include <cstdlib> 
+#include <stdlib.h>
 
 template <typename T> class Array
 {

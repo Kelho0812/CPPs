@@ -71,7 +71,7 @@ void	printFloat(float f, OverflowChecks *data)
 	{
 		std::cout << "Impossible" << std::endl;
 	}
-	else if (f == std::floor(f) && f < 1e7 && f > -1e7)
+	else if (f == std::floor(f) && f < 1e6 && f > -1e6)
 		std::cout << f << ".0f" << std::endl;
 	else
 	{
@@ -81,7 +81,7 @@ void	printFloat(float f, OverflowChecks *data)
 void	printDouble(double d)
 {
 	std::cout << "double: ";
-	if (d == std::floor(d) && d < 1e7 && d > -1e7)
+	if (d == std::floor(d) && d < 1e6 && d > -1e6)
 		std::cout << d << ".0" << std::endl;
 	else
 	{

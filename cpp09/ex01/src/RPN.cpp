@@ -1,5 +1,22 @@
 #include "../includes/RPN.hpp"
 
+/**
+ * @brief Processes the input string representing a Reverse Polish Notation (RPN) expression.
+ *
+ * This function takes a string argument, validates it, and evaluates it as an RPN expression.
+ * It throws an exception if the input is invalid or if the evaluation fails.
+ *
+ * @param argument The input string representing the RPN expression.
+ * @throws std::invalid_argument If the input is empty, contains only whitespace, or is otherwise invalid.
+ *
+ * The function performs the following steps:
+ * - Checks if the input is empty or contains only whitespace.
+ * - Splits the input into tokens and validates each token.
+ * - If a token is a valid number, it is pushed onto a stack.
+ * - If a token is an operator, it performs the corresponding calculation using the top two numbers on the stack.
+ * - Ensures that the number of operators is one less than the number of numbers.
+ * - Outputs the result of the RPN expression.
+ */
 void	processInput(std::string argument)
 {
 	std::istringstream str(argument);

@@ -89,7 +89,6 @@ unsigned int Span::shortestSpan()
 	return (_shortestSpan);
 }
 
-// #TODO Add distance + size that we are trying to add, so, if vector already has numbers, it will account to that
 void Span::fillVector(std::vector<int>::iterator begin,
 	std::vector<int>::iterator end)
 {

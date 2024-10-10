@@ -151,7 +151,10 @@ bool	calculate(std::stack<int>& stack_numbers, std::string op)
 			return (false);
 		result = second / first;
 	}
-
+	else
+	{
+		return(false);
+	}
 	stack_numbers.push(result);
 	return (true);
 }

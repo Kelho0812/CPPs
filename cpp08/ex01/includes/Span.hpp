@@ -22,8 +22,8 @@ class Span
   private:
 	Span();
 	unsigned int _maxSize;
-	unsigned int _maxSpan;
-	unsigned int _minSpan;
+	unsigned int _longestSpan;
+	unsigned int _shortestSpan;
 	std::vector<int> _vectorSpan;
 
   public:

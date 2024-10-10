@@ -23,6 +23,7 @@ int	main(void)
 	try
 	{
 		std::vector<int> range = generateVector(100000);
+		sp.addNumber(1);
 		sp.fillVector(range.begin(), range.end());
 		std::cout << "Line " << __LINE__ << ": " << sp.shortestSpan() << std::endl;
 		std::cout << "Line " << __LINE__ << ": " << sp.longestSpan() << std::endl;

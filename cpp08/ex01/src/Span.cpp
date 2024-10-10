@@ -67,8 +67,8 @@ unsigned int Span::longestSpan()
 		throw std::length_error("Max span cannot be found because vector has less than 2 numbers stored.");
 	}
 	std::sort(_vectorSpan.begin(), _vectorSpan.end());
-	_maxSpan = (_vectorSpan.back() - _vectorSpan.front());
-	return (_maxSpan);
+	_longestSpan = (_vectorSpan.back() - _vectorSpan.front());
+	return (_longestSpan);
 }
 
 unsigned int Span::shortestSpan()
@@ -78,21 +78,22 @@ unsigned int Span::shortestSpan()
 		throw std::length_error("Min span cannot be found because vector has less than 2 numbers stored.");
 	}
 	std::sort(_vectorSpan.begin(), _vectorSpan.end());
-	_minSpan = _vectorSpan[1] - _vectorSpan[0];
+	_shortestSpan = _vectorSpan[1] - _vectorSpan[0];
 	for (size_t i = 0; i < _vectorSpan.size() - 1; ++i)
 	{
-		if (static_cast<int>(_minSpan) > (_vectorSpan[i + 1] - _vectorSpan[i]))
+		if (static_cast<int>(_shortestSpan) > (_vectorSpan[i + 1] - _vectorSpan[i]))
 		{
-			_minSpan = _vectorSpan[i + 1] - _vectorSpan[i];
+			_shortestSpan = _vectorSpan[i + 1] - _vectorSpan[i];
 		}
 	}
-	return (_minSpan);
+	return (_shortestSpan);
 }
 
+// #TODO Add distance + size that we are trying to add, so, if vector already has numbers, it will account to that
 void Span::fillVector(std::vector<int>::iterator begin,
 	std::vector<int>::iterator end)
 {
-	if (std::distance(begin, end) > _maxSize)
+	if (std::distance(begin, end) + this->_vectorSpan.size() > _maxSize)
 	{
 		throw std::length_error("Trying to fill the vector with too many numbers.");
 	}

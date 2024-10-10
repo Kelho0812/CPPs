@@ -23,5 +23,5 @@ typename T::iterator easyfind(T &tParam, int intParam)
 	if (it != tParam.end())
 		return (it);
 	else
-		throw std::runtime_error("Element not found");
+		throw std::out_of_range("Element not found");
 }

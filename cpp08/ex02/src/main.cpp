@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 
 #include "../includes/MutantStack.hpp"
+#include <list>
 
 int	main(void)
 {
 	MutantStack<int> mstack;
+	MutantStack<int> mstack2;
 	mstack.push(5);
 	mstack.push(17);
+	mstack2 = mstack;
 	std::cout << mstack.top() << std::endl;
 	mstack.pop();
 	std::cout << mstack.size() << std::endl;
@@ -30,9 +33,15 @@ int	main(void)
 	--it;
 	while (it != ite)
 	{
-		std::cout << *it << std::endl;
+		std::cout << "mstack = " << *it << std::endl;
 		++it;
 	}
-	std::stack<int> s(mstack);
+	MutantStack<int>::iterator it2 = mstack2.begin();
+	MutantStack<int>::iterator ite2 = mstack2.end();
+	while (it2 != ite2)
+	{
+		std::cout << "mstack2 = " << *it2 << std::endl;
+		++it2;
+	}
 	return (0);
 }

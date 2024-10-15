@@ -10,8 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/PmergeMe.hpp"
+
 int main(int argc, char const *argv[])
 {
-	/* code */
+	try
+	{
+		if (argc < 2)
+			throw std::invalid_argument("Error: Invalid number of arguments.");
+		parseInput(argc, argv);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	return 0;
 }

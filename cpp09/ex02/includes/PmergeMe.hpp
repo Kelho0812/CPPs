@@ -10,3 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstdlib>
+#include <exception>
+#include <iostream>
+#include <sstream>
+#include <stack>
+#include <string>
+#include <climits>
+
+void parseInput(int argc, const char ** argument);
+bool isValidNumber(int argc, const char ** argument);
+bool isValidInt(int argc, const char **argument);
+

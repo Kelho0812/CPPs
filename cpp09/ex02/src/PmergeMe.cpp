@@ -28,6 +28,20 @@ void parseInput(int argc, const char **argument)
 	}
 }
 
+void	printUnsorted(int argc, const char **argument)
+{
+	int i;
+
+	i = 1;
+	std::cout << "Before: ";
+	while (i < argc)
+	{
+		std::cout << argument[i] << " ";
+		i++;
+	}
+	std::cout << std::endl;
+}
+
 bool	isValidNumber(int argc, const char **argument)
 {
 	int	i;

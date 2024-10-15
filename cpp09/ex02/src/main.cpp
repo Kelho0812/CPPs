@@ -12,20 +12,30 @@
 
 #include "../includes/PmergeMe.hpp"
 
-int main(int argc, char const *argv[])
+int	main(int argc, char **argv)
 {
 	try
 	{
 		if (argc < 2)
 			throw std::invalid_argument("Error: Invalid number of arguments.");
-		parseInput(argc, argv);
+
+		PmergeMe<std::vector<int> > vector(argc, argv);
+		PmergeMe<std::deque<int> > deque(argc, argv);
+		// #TODO vector.sort();
+		// #TODO deque.sort();
+		vector.endTimer();
+		deque.endTimer();
 		
+		printUnsorted(argc, argv);
+		vector.printContainer(vector.getMain());
+		vector.printTime();
+		deque.printTime();
+
 		
 	}
-	catch(const std::exception& e)
+	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	return 0;
+	return (0);
 }

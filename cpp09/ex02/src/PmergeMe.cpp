@@ -12,7 +12,7 @@
 
 #include "../includes/PmergeMe.hpp"
 
-void parseInput(int argc, const char **argument)
+void parseInput(int argc, char **argument)
 {
 	if (!isValidNumber(argc, argument))
 	{
@@ -28,7 +28,7 @@ void parseInput(int argc, const char **argument)
 	}
 }
 
-void	printUnsorted(int argc, const char **argument)
+void	printUnsorted(int argc, char **argument)
 {
 	int i;
 
@@ -42,7 +42,7 @@ void	printUnsorted(int argc, const char **argument)
 	std::cout << std::endl;
 }
 
-bool	isValidNumber(int argc, const char **argument)
+bool	isValidNumber(int argc, char **argument)
 {
 	int	i;
 	int	j;
@@ -62,7 +62,7 @@ bool	isValidNumber(int argc, const char **argument)
 	return (true);
 }
 
-bool	isValidInt(int argc, const char **argument)
+bool	isValidInt(int argc, char **argument)
 {
 	int i;
 

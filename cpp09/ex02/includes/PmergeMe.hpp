@@ -13,24 +13,41 @@
 #pragma once
 
 #include <climits>
-#include <cstdlib>
+#include <deque>
 #include <exception>
 #include <iostream>
-#include <sstream>
-#include <stack>
 #include <string>
+#include <vector>
+#include <bits/stdc++.h>
 
 template <typename T> class PmergeMe
 {
-  public:
+  private:
+	T _main;
+	T _temp;
+	clock_t _start;
+	clock_t _end;
+	
 	PmergeMe(void);
+	void initializeSortedPair(int argc, char **argument);
+
+  public:
+	PmergeMe(int argc, char **argument);
 	~PmergeMe(void);
 	PmergeMe(PmergeMe const &copy);
 	PmergeMe const &operator=(PmergeMe const &copy);
+	void printContainer(T container);
+	void beginTimer();
+	void endTimer();
+	void printTime();
+	void sort();
+	T getMain(void) const;
+	T getTemp(void) const;
 };
 
-void	parseInput(int argc, const char **argument);
-bool	isValidNumber(int argc, const char **argument);
-bool	isValidInt(int argc, const char **argument);
+void	parseInput(int argc, char **argument);
+void	printUnsorted(int argc, char **argument);
+bool	isValidNumber(int argc, char **argument);
+bool	isValidInt(int argc, char **argument);
 
 #include "../src/PmergeMe.tpp"

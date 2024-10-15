@@ -20,8 +20,9 @@ int	main(int argc, char **argv)
 			throw std::invalid_argument("Error: Invalid number of arguments.");
 
 		PmergeMe<std::vector<int> > vector(argc, argv);
-		vector.endTimer();
 		vector.recursiveMergeSort(0, vector.getMain().size() - 1);
+		vector.insert();
+		vector.endTimer();
 		printUnsorted(argc, argv);
 		vector.printContainer(vector.getMain());
 		vector.printTime();
@@ -34,6 +35,7 @@ int	main(int argc, char **argv)
 	{
 		PmergeMe<std::deque<int> > deque(argc, argv);
 		deque.recursiveMergeSort(0, deque.getMain().size() - 1);
+		deque.insert();
 		deque.endTimer();
 		deque.printTime();
 	}

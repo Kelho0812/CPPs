@@ -42,6 +42,9 @@ template <typename T> class PmergeMe
 	void printTime();
 	void recursiveMergeSort(int left, int right);
 	void mergeSortedSections(int left, int mid, int right);
+	void insert(void);
+	size_t getJacobsthal(size_t n);
+	void sortedBinaryInsert(int left, int right, int number);
 	T getMain(void) const;
 	T getTemp(void) const;
 };

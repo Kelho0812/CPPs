@@ -12,7 +12,28 @@
 
 #include "../includes/PmergeMe.hpp"
 
-void	parseInput(int argc, const char **argument)
+PmergeMe::PmergeMe(void)
+{
+	std::cout << "PmergeMe Default Constructor called.";
+}
+PmergeMe::~PmergeMe(void)
+{
+	std::cout << "PmergeMe Default Destructor called.";
+}
+PmergeMe::PmergeMe(PmergeMe const &copy)
+{
+	*this = copy;
+}
+const PmergeMe &PmergeMe::operator=(PmergeMe const &copy)
+{
+	if(this != &copy)
+	{
+		
+	}
+	return *this;
+}
+
+void	PmergeMe::parseInput(int argc, const char **argument)
 {
 	if (!isValidNumber(argc, argument))
 	{

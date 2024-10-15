@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 	{
 		if (argc < 2)
 			throw std::invalid_argument("Error: Invalid number of arguments.");
-		parseInput(argc, argv);
+		PmergeMe::parseInput(argc, argv);
 	}
 	catch(const std::exception& e)
 	{

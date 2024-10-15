@@ -10,15 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <climits>
 #include <cstdlib>
 #include <exception>
 #include <iostream>
 #include <sstream>
 #include <stack>
 #include <string>
-#include <climits>
 
-void parseInput(int argc, const char ** argument);
-bool isValidNumber(int argc, const char ** argument);
-bool isValidInt(int argc, const char **argument);
+class PmergeMe
+{
+  private:
+	PmergeMe(void);
+	~PmergeMe(void);
+	PmergeMe(PmergeMe const &copy);
+	PmergeMe const &operator=(PmergeMe const &copy);
 
+  public:
+	static void	parseInput(int argc, const char **argument);
+};
+
+bool	isValidNumber(int argc, const char **argument);
+bool	isValidInt(int argc, const char **argument);

@@ -12,13 +12,13 @@
 
 #pragma once
 
+#include <bits/stdc++.h>
 #include <climits>
 #include <deque>
 #include <exception>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <bits/stdc++.h>
 
 template <typename T> class PmergeMe
 {
@@ -27,7 +27,7 @@ template <typename T> class PmergeMe
 	T _temp;
 	clock_t _start;
 	clock_t _end;
-	
+
 	PmergeMe(void);
 	void initializeSortedPair(int argc, char **argument);
 
@@ -40,7 +40,8 @@ template <typename T> class PmergeMe
 	void beginTimer();
 	void endTimer();
 	void printTime();
-	void sort();
+	void recursiveMergeSort(int left, int right);
+	void mergeSortedSections(int left, int mid, int right);
 	T getMain(void) const;
 	T getTemp(void) const;
 };

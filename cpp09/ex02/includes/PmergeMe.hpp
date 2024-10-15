@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <climits>
 #include <cstdlib>
 #include <exception>
@@ -18,17 +20,17 @@
 #include <stack>
 #include <string>
 
-class PmergeMe
+template <typename T> class PmergeMe
 {
-  private:
+  public:
 	PmergeMe(void);
 	~PmergeMe(void);
 	PmergeMe(PmergeMe const &copy);
 	PmergeMe const &operator=(PmergeMe const &copy);
-
-  public:
-	static void	parseInput(int argc, const char **argument);
 };
 
+void	parseInput(int argc, const char **argument);
 bool	isValidNumber(int argc, const char **argument);
 bool	isValidInt(int argc, const char **argument);
+
+#include "../src/PmergeMe.tpp"

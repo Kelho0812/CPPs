@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorteixe  <jorteixe@student.42.fr   >      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 10:44:35 by jorteixe          #+#    #+#             */
-/*   Updated: 2024/10/08 10:44:35 by jorteixe         ###   ########.fr       */
+/*   Created: 2024/10/15 15:11:05 by jorteixe          #+#    #+#             */
+/*   Updated: 2024/10/15 15:11:05 by jorteixe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PmergeMe.hpp"
 
-PmergeMe::PmergeMe(void)
-{
-	std::cout << "PmergeMe Default Constructor called.";
-}
-PmergeMe::~PmergeMe(void)
-{
-	std::cout << "PmergeMe Default Destructor called.";
-}
-PmergeMe::PmergeMe(PmergeMe const &copy)
-{
-	*this = copy;
-}
-const PmergeMe &PmergeMe::operator=(PmergeMe const &copy)
-{
-	if(this != &copy)
-	{
-		
-	}
-	return *this;
-}
-
-void	PmergeMe::parseInput(int argc, const char **argument)
+void parseInput(int argc, const char **argument)
 {
 	if (!isValidNumber(argc, argument))
 	{

@@ -53,5 +53,6 @@ void	parseInput(int argc, char **argument);
 void	printUnsorted(int argc, char **argument);
 bool	isValidNumber(int argc, char **argument);
 bool	isValidInt(int argc, char **argument);
+void	check_correct_arguments(int argc, char **argv);
 
 #include "../src/PmergeMe.tpp"

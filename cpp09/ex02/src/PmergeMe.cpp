@@ -77,3 +77,16 @@ bool	isValidInt(int argc, char **argument)
 	}
 	return (true);
 }
+
+void	check_correct_arguments(int argc, char **argv)
+{
+	if (argc < 2)
+		throw std::invalid_argument("Error: Invalid number of arguments.");
+	for (int i = 1; i < argc; ++i)
+	{
+		if (std::string(argv[i]).empty())
+		{
+			throw std::invalid_argument("Error: Empty string argument.");
+		}
+	}
+}

@@ -25,5 +25,5 @@ bool	isInputValid(std::string str);
 bool	isFormatValid(std::string str);
 bool	isValidNumber(std::string str);
 bool	isValidOperator(char c);
-bool	calculate(std::stack<int> &stack_numbers, std::string op);
+bool	calculate(std::stack<double> &stack_numbers, std::string op);
 std::string intToStdString(int value);

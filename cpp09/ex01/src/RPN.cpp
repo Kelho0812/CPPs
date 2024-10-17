@@ -32,7 +32,7 @@
 void	processInput(std::string argument)
 {
 	std::istringstream str(argument);
-	std::stack<int> number_stack;
+	std::stack<double> number_stack;
 	std::string	token;
 	int number_count = 0;
 	int	operator_counter = 0;
@@ -140,13 +140,13 @@ bool isValidOperator(char c)
 	return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
-bool	calculate(std::stack<int>& stack_numbers, std::string op)
+bool	calculate(std::stack<double>& stack_numbers, std::string op)
 {
 	if (stack_numbers.empty())
 		return (false);
-	int	first = stack_numbers.top();
+	double	first = stack_numbers.top();
 	stack_numbers.pop();
-	int second = stack_numbers.top();
+	double second = stack_numbers.top();
 	stack_numbers.pop();
 
 	double result;

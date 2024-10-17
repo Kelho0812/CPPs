@@ -48,6 +48,10 @@ void	processInput(std::string argument)
 			throw std::invalid_argument("Error\nInvalid Input.");
 		}
 		if (isValidNumber(token)) {
+			if (token.size() >= 2)
+			{
+				throw std::invalid_argument("Error\nInvalid Input.");
+			}
 			number = std::atoi(token.c_str());
 			if (number >= 10) {
 				throw std::invalid_argument("Error\nInvalid Input.");

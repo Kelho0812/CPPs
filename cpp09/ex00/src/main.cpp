@@ -21,8 +21,7 @@ int	main(int ac, char **av)
 		if (ac != 2)
 			throw "Wrong number of arguments passed.";
 		bitcoin.readData();
-		bitcoin.readInput(av[1]);
-		bitcoin.processInput();
+		bitcoin.processInputRecords(av[1]);
 	}
 	catch (const char *str)
 	{

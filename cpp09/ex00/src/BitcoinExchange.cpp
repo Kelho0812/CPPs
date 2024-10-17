@@ -60,7 +60,7 @@ void BitcoinExchange::readData()
 	dataFile.close();
 }
 
-void BitcoinExchange::readInput(const char *inputFile)
+void BitcoinExchange::processInputRecords(const char *inputFile)
 {
 	std::ifstream inFile(inputFile);
 	if (!inFile)
@@ -81,6 +81,19 @@ void BitcoinExchange::readInput(const char *inputFile)
 				throw "invalid file format.";
 			continue ;
 		}
+		if (checkDate(key))
+		{
+			if (atof(value.c_str()) > 1000)
+				std::cerr << "Error: number is too large => " << value << std::endl;
+			else if (atof(value.c_str()) < 0)
+				std::cerr << "Error: not a positive number => " << value << std::endl;
+			else
+				std::cerr << key << " => " << value << " = " << exchangeBtc(key,
+					atof(value.c_str())) << std::endl;
+		}
+		else
+			std::cerr << "Error: bad input => " << key << std::endl;
+	
 		_inputFile.insert(std::make_pair(key, atof(value.c_str())));
 		key.clear();
 		value.clear();
@@ -88,7 +101,7 @@ void BitcoinExchange::readInput(const char *inputFile)
 	inFile.close();
 }
 
-int BitcoinExchange::checkData(std::string date)
+int BitcoinExchange::checkDate(std::string date)
 {
 	if (date.size() != 10)
 		return (0);
@@ -145,25 +158,4 @@ double BitcoinExchange::exchangeBtc(std::string key, double amount)
 	if (it == _data.end())
 		return (amount * prev->second);
 	return (0);
-}
-
-void BitcoinExchange::processInput()
-{
-	bitcoinExchangeIterator	it;
-
-	for (it = _inputFile.begin(); it != _inputFile.end(); it++)
-	{
-		if (checkData(it->first))
-		{
-			if (it->second > 1000)
-				std::cerr << "Error: too large a number." << std::endl;
-			else if (it->second < 0)
-				std::cerr << "Error: not a positive number." << std::endl;
-			else
-				std::cerr << it->first << " => " << it->second << " = " << exchangeBtc(it->first,
-					it->second) << std::endl;
-		}
-		else
-			std::cerr << "Error: bad input => " << it->first << std::endl;
-	}
 }

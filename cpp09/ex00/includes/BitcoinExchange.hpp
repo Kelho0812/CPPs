@@ -35,8 +35,7 @@ public:
 
 	void print(BitcoinExchangeData &exchangeDataMap);
 	void readData();
-	void readInput(const char* inputFile);
-	int checkData(std::string date);
+	void processInputRecords(const char* inputFile);
+	int checkDate(std::string date);
 	double exchangeBtc(std::string key, double amount);
-	void processInput();
 };
